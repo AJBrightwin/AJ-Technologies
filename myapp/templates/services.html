@@ -1,0 +1,1747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Our Services | AJ Technologies - Simple & Premium Web Solutions</title>
+
+<link rel="icon" type="image/png" href="images/favicon.png">
+
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="description" content="AJ Technologies is a leading website development company in Tamil Nadu offering business websites, eCommerce stores, SEO, and custom web solutions.">
+
+<meta name="keywords"
+content="website development company, web design company Tamil Nadu, website developer Tuticorin, ecommerce website development, landing page design, custom website development, AJ Technologies">
+
+<meta name="author" content="AJ Technologies">
+
+<meta name="robots" content="index, follow">
+
+<meta property="og:title"
+content="AJ Technologies | Professional Website Development">
+
+<meta property="og:description"
+content="We build professional websites, e-commerce stores, landing pages and custom web solutions.">
+
+<meta property="og:image"
+content="https://ajtechnologiesltd.com/images/og-image.jpg">
+
+<meta property="og:url"
+content="https://ajtechnologiesltd.com">
+
+<meta property="og:type"
+content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link rel="canonical" href="https://ajtechnologiesltd.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. BRAND COLOR PALETTE & VARIABLES
+           ========================================================================== */
+        :root {
+            --primary: #1A1A2E;       /* Deep Navy Black */
+            --accent: #2563EB;        /* Brand Blue */
+            --highlight: #00D4FF;     /* Cyan / Electric Blue */
+            --bg-main: #F8FAFF;       /* Off-white */
+            --text-main: #1E1E1E;     /* Soft Black */
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            
+            /* Glassmorphism & Neumorphism Mix ("Morfism") */
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --morf-shadow: 
+                -8px -8px 20px rgba(255, 255, 255, 0.9),
+                8px 8px 20px rgba(166, 180, 200, 0.3);
+            --morf-inset: 
+                inset -4px -4px 10px rgba(255, 255, 255, 0.9),
+                inset 4px 4px 10px rgba(166, 180, 200, 0.2);
+            
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        /* ==========================================================================
+           2. BASE RESET & SMOOTH SCROLLING
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+            border: 2px solid var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .section-padding {
+            padding: 140px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ==========================================================================
+           3. PREMIUM MORFISM INTRO ANIMATION GEARS
+           ========================================================================== */
+        #intro-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-main);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .morf-loader-container {
+            position: relative;
+            padding: 60px 100px;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            box-shadow: var(--morf-shadow);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: loaderReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+
+        .morf-logo-sphere {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            box-shadow: var(--morf-shadow), var(--morf-inset);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .morf-logo-sphere::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+            animation: spherePulse 2s infinite ease-in-out;
+        }
+
+        .loader-brand-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textRiseUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+        }
+
+        .loader-brand-tagline {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: textRiseUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 1s;
+        }
+
+        .loader-progress-bar {
+            width: 200px;
+            height: 6px;
+            background: var(--bg-main);
+            border-radius: 10px;
+            box-shadow: var(--morf-inset);
+            overflow: hidden;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .loader-progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--highlight));
+            border-radius: 10px;
+            animation: fillProgress 2.5s cubic-bezier(0.65, 0.05, 0.36, 1) forwards 0.3s;
+        }
+
+        @keyframes loaderReveal {
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes spherePulse {
+            0%, 100% { transform: scale(0.85); opacity: 0.7; box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
+            50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
+        }
+        @keyframes textRiseUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fillProgress {
+            to { width: 100%; }
+        }
+        @keyframes exitSlideUp {
+            to { transform: translateY(-100%); opacity: 0; visibility: hidden; }
+        }
+
+        /* ==========================================================================
+           4. GLOBAL ANIMATION SYSTEM (SCROLL-DRIVEN & INTERACTIVE)
+           ========================================================================== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-left.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .scale-up {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .scale-up.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* ==========================================================================
+           5. HEADER & NAVIGATION SYSTEM
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: var(--transition-smooth);
+            padding: 25px 0;
+        }
+
+        header.scrolled {
+            background: rgba(26, 26, 46, 0.95); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 15px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary); 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header.scrolled .logo {
+            color: var(--white);
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        nav ul a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        header.scrolled nav ul a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        header.scrolled nav ul a:hover {
+            color: var(--highlight);
+        }
+
+        nav ul a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent); 
+            transition: var(--transition-fast);
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            background: var(--primary) !important;
+            color: var(--white) !important;
+            padding: 12px 28px !important;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(26, 26, 46, 0.2);
+            transition: var(--transition-fast) !important;
+        }
+
+        header.scrolled .nav-btn {
+            background: var(--accent) !important;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+            background: var(--accent) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        header.scrolled .menu-toggle {
+            color: var(--white);
+        }
+
+        /* ==========================================================================
+           EASY-TO-UNDERSTAND SERVICES HERO SECTION
+           ========================================================================== */
+        #services-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 140px;
+            background: radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.12) 0%, transparent 60%),
+                        radial-gradient(circle at 85% 85%, rgba(0, 212, 255, 0.15) 0%, transparent 60%);
+        }
+
+        .services-hero-title {
+            font-size: 3.8rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            color: var(--primary);
+            margin-bottom: 25px;
+            line-height: 1.1;
+        }
+
+        .services-hero-title span {
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .services-grid-extended {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+            cursor: pointer;
+        }
+
+        .service-card-premium-detailed {
+            background: var(--white);
+            border: 2px solid var(--glass-border);
+            border-radius: 35px;
+            padding: 50px;
+            box-shadow: var(--morf-shadow);
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .service-card-premium-detailed:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 35px 70px rgba(166, 180, 200, 0.4);
+            border-color: rgba(37, 99, 235, 0.25);
+        }
+
+        .service-card-premium-detailed .card-icon-frame {
+            width: 70px;
+            height: 70px;
+            border-radius: 20px;
+            background: var(--bg-main);
+            box-shadow: var(--morf-inset);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: var(--accent);
+            transition: var(--transition-smooth);
+        }
+
+        .service-card-premium-detailed:hover .card-icon-frame {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateZ(20px) rotate(10deg);
+        }
+
+        .feature-check-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 5px;
+        }
+
+        .feature-check-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .feature-check-list li i {
+            color: #22C55E;
+            font-size: 1.1rem;
+        }
+
+        .service-metric-badge-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            border-top: 1px solid rgba(166, 180, 200, 0.2);
+            padding-top: 20px;
+            margin-top: auto;
+        }
+
+        .metric-badge-item {
+            text-align: left;
+        }
+
+        .metric-badge-item span {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .metric-badge-item p {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* ==========================================================================
+           REPLACED TABLE BLOCK WITH ADVERTISING ADVANTAGES CARDS
+           ========================================================================== */
+        #advantages-showcase-section {
+            background: linear-gradient(180deg, var(--bg-main) 0%, rgba(234, 242, 255, 0.5) 50%, var(--bg-main) 100%);
+        }
+
+        .advantages-cards-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .advantage-premium-box {
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: var(--morf-shadow);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .advantage-premium-box:hover {
+            transform: translateY(-8px);
+            background: var(--white);
+            border-color: rgba(0, 212, 255, 0.4);
+            box-shadow: 0 25px 50px rgba(166, 180, 200, 0.3);
+        }
+
+        .advantage-premium-box .badge-glow-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: var(--white);
+            box-shadow: var(--morf-shadow);
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin-bottom: 25px;
+            transition: var(--transition-smooth);
+        }
+
+        .advantage-premium-box:hover .badge-glow-circle {
+            background: var(--primary);
+            color: var(--highlight);
+            transform: scale(1.1);
+        }
+
+        .advantage-premium-box h4 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .advantage-premium-box p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ==========================================================================
+           STABLE FAQ ACCORDION INTERACTIVE ENGINE
+           ========================================================================== */
+        .faq-accordion-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .faq-node {
+            background: var(--white);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--morf-shadow);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition-fast);
+        }
+
+        .faq-node:hover {
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .faq-trigger-button {
+            width: 100%;
+            padding: 25px 35px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-family: var(--font-main);
+        }
+
+        .faq-trigger-button h4 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+            padding-right: 20px;
+        }
+
+        .faq-icon-indicator {
+            min-width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            box-shadow: var(--morf-inset);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--accent);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Active CSS State for FAQ Panels */
+        .faq-node.active .faq-icon-indicator {
+            transform: rotate(180deg);
+            background: var(--accent);
+            color: var(--white);
+        }
+
+        .faq-content-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .faq-content-inner-box {
+            padding: 0 35px 30px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* CTA Conversion Row Block */
+        .cta-premium-banner-box {
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 45px;
+            box-shadow: var(--morf-shadow);
+            padding: 80px 60px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+
+        .cta-premium-banner-box h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            margin-bottom: 20px;
+        }
+
+        .cta-premium-banner-box p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* ==========================================================================
+           ULTRA-PREMIUM CYBER-GLOW CTA CONVERSION BUTTON
+           ========================================================================== */
+        .btn-premium-glow-hub {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 22px 54px;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--white) !important;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-radius: 100px;
+            background: linear-gradient(135deg, #1A1A2E 0%, #111126 50%, #2563EB 100%);
+            background-size: 200% auto;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2), 
+                        0 0 0 2px rgba(255, 255, 255, 0.1),
+                        inset 0 2px 4px rgba(255, 255, 255, 0.2);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: buttonPulseGlow 3s infinite ease-in-out;
+        }
+
+        /* Moving Background Trace */
+        .btn-premium-glow-hub::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 212, 255, 0.4), 
+                rgba(255, 255, 255, 0.6), 
+                rgba(0, 212, 255, 0.4), 
+                transparent
+            );
+            transition: 0.6s;
+            z-index: 1;
+        }
+
+        /* Glowing Accent Border Ring */
+        .btn-premium-glow-hub::after {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 100px;
+            background: linear-gradient(90deg, var(--accent), var(--highlight), var(--primary), var(--accent));
+            background-size: 300% 300%;
+            z-index: -1;
+            opacity: 0.4;
+            transition: opacity 0.4s ease;
+            animation: borderTraceMove 4s linear infinite;
+        }
+
+        /* Hover Interactive Adjustments */
+        .btn-premium-glow-hub:hover {
+            transform: translateY(-5px) scale(1.03);
+            background-position: right center;
+            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.4), 
+                        0 0 30px rgba(0, 212, 255, 0.5),
+                        inset 0 1px 2px rgba(255, 255, 255, 0.4);
+            letter-spacing: 2.5px;
+        }
+
+        .btn-premium-glow-hub:hover::before {
+            left: 100%;
+            transition: all 0.8s ease-in-out;
+        }
+
+        .btn-premium-glow-hub:hover::after {
+            opacity: 1;
+        }
+
+        .btn-premium-glow-hub i {
+            font-size: 1.1rem;
+            color: var(--highlight);
+            transition: transform 0.4s ease;
+            z-index: 2;
+        }
+
+        .btn-premium-glow-hub:hover i {
+            transform: translateX(6px) scale(1.1);
+            color: var(--white);
+        }
+
+        /* Button Custom Keyframe Cycles */
+        @keyframes borderTraceMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes buttonPulseGlow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.1); }
+            50% { box-shadow: 0 10px 35px rgba(37, 99, 235, 0.35), 0 0 15px rgba(0, 212, 255, 0.3); }
+        }
+
+        /* ==========================================================================
+           13. PREMIUM END FOOTER SYSTEM (UNCHANGED CORE STRUCTURE)
+           ========================================================================== */
+        footer {
+            background: var(--primary); 
+            color: rgba(255, 255, 255, 0.7);
+            padding: 100px 0 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand-column h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 20px; 
+        }
+
+        .footer-brand-column p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px; 
+        }
+
+        .footer-social-row {
+            display: flex;
+            gap: 15px; 
+        }
+
+        .social-link-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition-fast);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-link-circle:hover {
+            background: var(--accent); 
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .footer-links-column h4 {
+            color: var(--white);
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-links-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; 
+        }
+
+        .footer-links-list a {
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links-list a:hover {
+            color: var(--highlight); 
+            transform: translateX(5px);
+        }
+
+        .footer-bottom-bar {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem; 
+        }
+
+        /* ==========================================================================
+           14. RESPONSIVE MATRIX LAYER BREAKPOINTS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .services-hero-title { font-size: 3rem; }
+            .services-grid-extended { grid-template-columns: 1fr; gap: 35px; }
+            .advantages-cards-matrix { grid-template-columns: 1fr; gap: 25px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 90px 0; }
+            .cta-premium-banner-box { padding: 50px 30px; border-radius: 30px; }
+            .cta-premium-banner-box h2 { font-size: 2.2rem; }
+            .service-card-premium-detailed { padding: 35px 25px; border-radius: 25px; }
+            .btn-premium-glow-hub { font-size: 1rem; padding: 18px 36px; width: 100%; }
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--primary);
+                padding: 100px 40px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+                transition: var(--transition-smooth);
+            }
+            nav.open { right: 0; }
+            nav ul { flex-direction: column; align-items: flex-start; gap: 30px; }
+            header.scrolled nav ul a { color: rgba(255,255,255,0.8); }
+            nav ul a { color: var(--white); font-size: 1.2rem; }
+            .menu-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom-bar { flex-direction: column; gap: 20px; text-align: center; }
+        }
+
+        #mobileMenuBtn{
+    display:none;
+}
+
+@media(max-width:768px){
+
+    #mobileMenuBtn{
+        display:flex;
+        position:fixed;
+        top:15px;
+        left:15px;
+        width:50px;
+        height:50px;
+        z-index:10000;
+
+        border:none;
+        border-radius:12px;
+
+        background:#0D0E22;
+        color:white;
+
+        justify-content:center;
+        align-items:center;
+
+        font-size:20px;
+
+        box-shadow:0 0 20px rgba(0,0,0,.4);
+    }
+}
+
+/* ==================================================
+   EXTRA RESPONSIVE MEDIA CSS
+   ================================================== */
+
+/* Tablets */
+@media (max-width: 992px){
+
+    .container{
+        padding:0 25px;
+    }
+
+    .services-hero-title{
+        font-size:2.8rem;
+    }
+
+    .service-card-premium-detailed{
+        padding:35px;
+    }
+
+    .cta-premium-banner-box h2{
+        font-size:2.5rem;
+    }
+
+    .service-metric-badge-grid{
+        grid-template-columns:1fr 1fr 1fr;
+    }
+
+}
+
+/* Large Mobile */
+@media (max-width:768px){
+
+    html{
+        font-size:15px;
+    }
+
+    .container{
+        padding:0 18px;
+    }
+
+    #services-hero{
+        min-height:auto;
+        padding-top:120px;
+        padding-bottom:60px;
+    }
+
+    .services-hero-title{
+        font-size:2.2rem;
+        line-height:1.2;
+        margin-bottom:15px;
+    }
+
+    .services-grid-extended{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .service-card-premium-detailed{
+        padding:25px;
+        border-radius:22px;
+    }
+
+    .card-icon-frame{
+        width:60px !important;
+        height:60px !important;
+        font-size:1.5rem !important;
+    }
+
+    .service-card-premium-detailed h3{
+        font-size:1.4rem !important;
+    }
+
+    .feature-check-list li{
+        font-size:.9rem;
+        align-items:flex-start;
+    }
+
+    .service-metric-badge-grid{
+        grid-template-columns:1fr;
+        gap:12px;
+    }
+
+    .metric-badge-item{
+        text-align:center;
+        padding:10px;
+        border:1px solid rgba(0,0,0,.05);
+        border-radius:12px;
+    }
+
+    .advantages-cards-matrix{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .advantage-premium-box{
+        padding:25px;
+    }
+
+    .faq-trigger-button{
+        padding:20px;
+    }
+
+    .faq-trigger-button h4{
+        font-size:1rem;
+    }
+
+    .faq-content-inner-box{
+        padding:0 20px 20px;
+        font-size:.95rem;
+    }
+
+    .cta-premium-banner-box{
+        padding:40px 20px;
+    }
+
+    .cta-premium-banner-box h2{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .cta-premium-banner-box p{
+        font-size:1rem;
+    }
+
+    .btn-premium-glow-hub{
+        width:100%;
+        padding:18px 20px;
+        font-size:.95rem;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .footer-bottom-bar{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+/* Small Mobile */
+@media (max-width:480px){
+
+    html{
+        font-size:14px;
+    }
+
+    .container{
+        padding:0 14px;
+    }
+
+    .services-hero-title{
+        font-size:1.9rem;
+        letter-spacing:-1px;
+    }
+
+    .services-hero p{
+        font-size:.95rem;
+    }
+
+    .service-card-premium-detailed{
+        padding:20px;
+    }
+
+    .service-card-premium-detailed h3{
+        font-size:1.25rem !important;
+    }
+
+    .feature-check-list li{
+        font-size:.85rem;
+    }
+
+    .advantage-premium-box{
+        padding:20px;
+    }
+
+    .advantage-premium-box h4{
+        font-size:1.1rem;
+    }
+
+    .advantage-premium-box p{
+        font-size:.9rem;
+    }
+
+    .faq-trigger-button{
+        padding:16px;
+    }
+
+    .faq-trigger-button h4{
+        font-size:.9rem;
+        line-height:1.4;
+    }
+
+    .faq-icon-indicator{
+        width:30px;
+        height:30px;
+        min-width:30px;
+    }
+
+    .cta-premium-banner-box h2{
+        font-size:1.6rem;
+    }
+
+    .cta-premium-banner-box p{
+        font-size:.9rem;
+    }
+
+    .loader-brand-title{
+        font-size:1.8rem;
+        text-align:center;
+    }
+
+    .loader-brand-tagline{
+        font-size:.8rem;
+        letter-spacing:2px;
+    }
+
+    .morf-loader-container{
+        width:90%;
+        padding:40px 20px;
+    }
+
+}
+
+/* Very Small Phones */
+@media (max-width:360px){
+
+    .services-hero-title{
+        font-size:1.6rem;
+    }
+
+    .service-card-premium-detailed{
+        padding:16px;
+    }
+
+    .feature-check-list li{
+        font-size:.8rem;
+    }
+
+    .btn-premium-glow-hub{
+        font-size:.85rem;
+        letter-spacing:1px;
+    }
+
+    .cta-premium-banner-box h2{
+        font-size:1.4rem;
+    }
+
+}
+    </style>
+</head>
+<body>
+
+
+    <button id="mobileMenuBtn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Premium Morfism Intro Animation -->
+    <div id="intro-loader">
+        <div class="morf-loader-container">
+            <div class="morf-logo-sphere"></div>
+            <h1 class="loader-brand-title">AJ Technologies</h1> 
+            <p class="loader-brand-tagline">We Build, You Grow</p> 
+            <div class="loader-progress-bar">
+                <div class="loader-progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Site Exact Header -->
+    <header id="site-header">
+        <div class="container">
+            <a href="/" class="logo">
+                AJ Technologies <span class="logo-dot"></span> 
+            </a>
+            <div class="menu-toggle" id="mobile-toggle-trigger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <nav id="main-navigation-node">
+                <ul>
+                    <li><a href="/">Home</a></li> 
+                    <li><a href="/services/">Services</a></li> 
+                    <li><a href="/portfolio/">Portfolio</a></li> 
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/contact/" class="nav-btn">Contact Us</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Services Hero Introduction Row -->
+    <section id="services-hero">
+        <div class="container">
+            <div style="max-width: 800px;" class="reveal-left">
+                <h1 class="services-hero-title">Beautiful Websites That <br><span>Work For Your Business</span></h1>
+                <p style="font-size: 1.25rem; color: var(--text-muted); line-height: 1.8;">
+                    We make modern, fast, and easy-to-use websites for shops, businesses, and entrepreneurs. Our websites look premium and help turn online visitors into lifelong clients.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Service Tiers Description Sections -->
+    <section id="detailed-capabilities" class="section-padding" style="background: transparent;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-title-tag">What We Build</span>
+                <h2 class="section-main-title">Websites Made to Help You Grow</h2>
+                <p style="color: var(--text-muted);">We handle all the design and setup details so you can focus completely on your daily operations.</p>
+            </div>
+
+            <div class="services-grid-extended">
+                
+                <!-- Business Websites Box -->
+                <div class="service-card-premium-detailed reveal interactive-tilt-card">
+                    <div class="card-icon-frame">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 12px;">Company & Local Shop Websites</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">
+                            A premium online profile crafted specifically for modern shops, companies, and offices. It shows your complete service history, details, and builds instant client trust.
+                        </p>
+                    </div>
+                    <ul class="feature-check-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Beautiful multi-page modern layouts</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Easy for customers to view on mobiles & tablets</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Direct Google Map integration for shop location</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Clean and clear customer inquiry tracking forms</li>
+                    </ul>
+                    <div class="service-metric-badge-grid">
+                        <div class="metric-badge-item">
+                            <span>Best For</span>
+                            <p>Shops & Offices</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Google Search</span>
+                            <p>Friendly Setup</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Speed Tier</span>
+                            <p>Super Fast</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- E-Commerce Websites Box -->
+                <div class="service-card-premium-detailed reveal interactive-tilt-card">
+                    <div class="card-icon-frame">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 12px;">Online Store & E-Commerce Setups</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">
+                            A complete digital store built with fluid product grids to showcase your items and securely accept client order bookings directly into your bank.
+                        </p>
+                    </div>
+                    <ul class="feature-check-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Fluid native shopping cart and order pages</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Safe payment gateway integrations setup</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Automated client confirmation WhatsApp alerts</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Easy management portal to add/remove products</li>
+                    </ul>
+                    <div class="service-metric-badge-grid">
+                        <div class="metric-badge-item">
+                            <span>Best For</span>
+                            <p>Selling Products</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Security</span>
+                            <p>Fully Secure</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Payments</span>
+                            <p>Instant UPI/Cards</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Landing Pages Box -->
+                <div class="service-card-premium-detailed reveal interactive-tilt-card">
+                    <div class="card-icon-frame">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 12px;">Single-Page Campaign Sites</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">
+                            High-focus single-page landing systems created specifically to promote single dedicated offers, festivals, or target launch campaigns beautifully.
+                        </p>
+                    </div>
+                    <ul class="feature-check-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Clear, scrolling promotional storytelling layout</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Single focal button to maximize daily customer calls</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Lightweight layout built to open instantly on mobile</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Great for social media advertisements traffic</li>
+                    </ul>
+                    <div class="service-metric-badge-grid">
+                        <div class="metric-badge-item">
+                            <span>Best For</span>
+                            <p>Product Launches</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Load Speed</span>
+                            <p>Instant Open</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Setup Time</span>
+                            <p>Very Quick</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Custom Web Applications Box -->
+                <div class="service-card-premium-detailed reveal interactive-tilt-card">
+                    <div class="card-icon-frame">
+                        <i class="fa-solid fa-code-branch"></i>
+                    </div>
+                    <div>
+                        <h3 style="font-size: 1.7rem; margin-bottom: 12px;">Custom Web Applications & Software</h3>
+                        <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.6;">
+                            Bespoke web platforms designed around your specific enterprise operations. Ideal for tracking inventory, customer databases, or moving internal staff logs.
+                        </p>
+                    </div>
+                    <ul class="feature-check-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Tailored logic to automate manual company tasks</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Secure user account levels for staff & managers</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Simple data charts for clear business monitoring</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Fully scalable foundation for future updates</li>
+                    </ul>
+                    <div class="service-metric-badge-grid">
+                        <div class="metric-badge-item">
+                            <span>Best For</span>
+                            <p>Business Tracking</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Database</span>
+                            <p>Highly Scalable</p>
+                        </div>
+                        <div class="metric-badge-item">
+                            <span>Code Layer</span>
+                            <p>Clean & Reliable</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Advertising Section Replacing Replaced Table -->
+    <section id="advantages-showcase-section" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-title-tag">Our Advantages</span>
+                <h2 class="section-main-title">Why Work With AJ Technologies?</h2>
+                <p style="color: var(--text-muted);">We combine elegant style with reliable execution to build the perfect digital presence for you.</p>
+            </div>
+
+            <div class="advantages-cards-matrix">
+                
+                <div class="advantage-premium-box reveal">
+                    <div class="badge-glow-circle">
+                        <i class="fa-solid fa-crown"></i>
+                    </div>
+                    <h4>Premium Aesthetic Styles</h4>
+                    <p>We avoid basic templates. Every website features rich layout grids, commanding road presence, and professional colors to look elite and successful.</p>
+                </div>
+
+                <div class="advantage-premium-box reveal">
+                    <div class="badge-glow-circle">
+                        <i class="fa-solid fa-comments"></i>
+                    </div>
+                    <h4>WhatsApp-Ready Leads</h4>
+                    <p>We embed dynamic direct chat channels so your website traffic can communicate with your team instantly with one click, maximizing daily leads.</p>
+                </div>
+
+                <div class="advantage-premium-box reveal">
+                    <div class="badge-glow-circle">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4>Complete Security Setup</h4>
+                    <p>We optimize site speed and bundle premium security encryptions automatically, keeping your brand safe, clean, and fast around the clock.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Immersive Transformation Call To Action Block -->
+    <section id="services-cta" class="section-padding" style="background: transparent;">
+        <div class="container">
+            <div class="cta-premium-banner-box reveal">
+                <h2>Build Your Premium Online Presence</h2>
+                <p>Contact our design hub today to discuss your website requirements and explore tailored options for your business scale.</p>
+                
+                <!-- Ultra-Premium Glowing Interactive Button Link -->
+                <a href="/contact/" class="btn-premium-glow-hub">
+                    Get In Touch Now <i class="fa-solid fa-paper-plane"></i>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Site Exact Unchanged Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-column">
+                    <h3>AJ Technologies</h3> 
+                    <p>We Build, You Grow. Elite website architectures built to elevate operational scale seamlessly. </p>
+                    <div class="footer-social-row">
+                        <a href=" https://www.linkedin.com/in/aj-technologies-b17173412?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link-circle"><i class="fa-brands fa-linkedin-in"></i></a> 
+                        <a href="https://www.instagram.com/aj_technologies_ltd_?igsh=Ym5hdXhlZ3V2bnlq" class="social-link-circle"><i class="fa-brands fa-instagram"></i></a> 
+                        <a href=" https://youtube.com/@aj_technologies?si=X7VMm5-qdOlXsbOC" class="social-link-circle" ><i class="fa-brands fa-youtube"></i></a> 
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4>Navigation</h4>
+                    <div class="footer-links-list">
+                        <a href="/">Home</a> 
+                        <a href="/services/">Our Services</a> 
+                        <a href="/portfolio/">Portfolio</a>
+                        <a href="/about/">About Us</a> 
+                        <a href="/contact/">Contact Hub</a> 
+                    </div>
+                </div>
+
+                <div class="footer-links-column">
+                    <h4>Operations</h4>
+                    <p style="font-size: 0.95rem; line-height: 1.8;">
+                        Exclusively generated for structural deployments across Tamil Nadu and global digital nodes. </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p>&copy; Copyright 2026 AJ Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Fixed JavaScript Automation Systems Matrix -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // Preloader exit animation runtime engine
+            const loaderNode = document.getElementById('intro-loader');
+
+            setTimeout(() => {
+                loaderNode.style.animation = "exitSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                setTimeout(() => {
+                    loaderNode.remove();
+                    revealOnScroll();
+                }, 1000);
+            }, 2600); 
+
+            // Dynamic particle background system
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let particlesArray = [];
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = Math.random() * 0.4 - 0.2;
+                    this.speedY = Math.random() * 0.4 - 0.2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x > canvas.width) this.x = 0;
+                    else if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    else if (this.y < 0) this.y = canvas.height;
+                }
+                draw() {
+                    ctx.fillStyle = 'rgba(37, 99, 235, 0.25)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particlesArray = [];
+                const count = Math.min(Math.floor(window.innerWidth / 15), 80);
+                for (let i = 0; i < count; i++) {
+                    particlesArray.push(new Particle());
+                }
+            }
+            initParticles();
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            // Interactive 3D Card mouse tracker tilt effects matrix
+            const tiltCards = document.querySelectorAll('.interactive-tilt-card');
+            tiltCards.forEach(card => {
+                window.addEventListener('mousemove', function(e) {
+                    const box = card.getBoundingClientRect();
+                    const centerX = box.left + box.width / 2;
+                    const centerY = box.top + box.height / 2;
+                    const rotateX = (centerY - e.clientY) / 25;
+                    const rotateY = (e.clientX - centerX) / 25;
+                    
+                    const limitX = Math.max(-10, Math.min(10, rotateX));
+                    const limitY = Math.max(-10, Math.min(10, rotateY));
+                    
+                    if (e.clientX > box.left - 100 && e.clientX < box.right + 100 &&
+                        e.clientY > box.top - 100 && e.clientY < box.bottom + 100) {
+                        card.style.transform = `rotateX(${limitX}deg) rotateY(${limitY}deg) translateY(-5px)`;
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    card.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
+                });
+            });
+
+            // Mobile menu drawer toggle script tracking
+            const mobileTrigger = document.getElementById('mobile-toggle-trigger');
+            const navNode = document.getElementById('main-navigation-node');
+            
+            mobileTrigger.addEventListener('click', function() {
+                navNode.classList.toggle('open');
+                const barIcon = mobileTrigger.querySelector('i');
+                if(navNode.classList.contains('open')) {
+                    barIcon.classList.replace('fa-bars', 'fa-xmark');
+                } else {
+                    barIcon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
+
+            // Scroll position tracking animations reveal manager
+            const siteHeader = document.getElementById('site-header');
+            const elementsToReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .scale-up');
+
+            function revealOnScroll() {
+                if (window.scrollY > 50) {
+                    siteHeader.classList.add('scrolled');
+                } else {
+                    siteHeader.classList.remove('scrolled');
+                }
+
+                const triggerBottom = window.innerHeight * 0.88;
+                elementsToReveal.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    if (elementTop < triggerBottom) {
+                        element.classList.add('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+
+            /* ==========================================================================
+               FULLY WORKING ACCORDION LOGIC FIX
+               ========================================================================== */
+            const faqNodes = document.querySelectorAll('.faq-node');
+            faqNodes.forEach(node => {
+                const triggerButton = node.querySelector('.faq-trigger-button');
+                const contentPanel = node.querySelector('.faq-content-panel');
+                
+                triggerButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const isCurrentlyActive = node.classList.contains('active');
+                    
+                    // Collapse any other open dropdowns first for perfect alignment
+                    faqNodes.forEach(otherNode => {
+                        otherNode.classList.remove('active');
+                        otherNode.querySelector('.faq-content-panel').style.maxHeight = "0px";
+                    });
+                    
+                    // Toggle current state with accurate scrollHeight calculation parameters
+                    if (!isCurrentlyActive) {
+                        node.classList.add('active');
+                        contentPanel.style.maxHeight = contentPanel.scrollHeight + "px";
+                    } else {
+                        node.classList.remove('active');
+                        contentPanel.style.maxHeight = "0px";
+                    }
+                });
+            });
+        });
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const sidebar = document.querySelector('.cyber-sidebar-hull');
+
+mobileMenuBtn.addEventListener('click',()=>{
+
+    sidebar.classList.toggle('active');
+
+});
+
+document.querySelectorAll('.kinetic-menu-trigger')
+.forEach(link=>{
+
+    link.addEventListener('click',()=>{
+
+        if(window.innerWidth <= 768){
+
+            sidebar.classList.remove('active');
+
+        }
+
+    });
+
+});
+    </script>
+</body>
+</html>

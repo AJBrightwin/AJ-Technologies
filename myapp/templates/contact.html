@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Initiate Your Ecosystem | AJ Technologies Contact Hub</title>
+
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Connect with AJ Technologies. Initiate your business transformation with premium digital infrastructure engineered precisely in Tamil Nadu.">
+    <meta name="keywords" content="contact AJ Technologies, web design company Tamil Nadu, website developer Tuticorin, project estimation, enterprise web solutions">
+    <meta name="author" content="AJ Technologies">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="AJ Technologies | Contact Hub">
+    <meta property="og:description" content="We build professional websites, e-commerce stores, landing pages and custom web solutions.">
+    <meta property="og:image" content="https://ajtechnologiesltd.com/images/og-image.jpg">
+    <meta property="og:url" content="https://ajtechnologiesltd.com/contact.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="canonical" href="https://ajtechnologiesltd.com/contact.html">
+
+    <style>
+        /* ==========================================================================
+           1. BRAND COLOR PALETTE & VARIABLES (PERFECT DUPLICATION FROM INDEX)
+           ========================================================================== */
+        :root {
+            --primary: #1A1A2E;       /* Deep Navy Black */
+            --accent: #2563EB;        /* Brand Blue */
+            --highlight: #00D4FF;     /* Cyan / Electric Blue */
+            --bg-main: #F8FAFF;       /* Off-white */
+            --text-main: #1E1E1E;     /* Soft Black */
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --card-bg: rgba(255, 255, 255, 0.75);
+            
+            /* Glassmorphism & Neumorphism Mix ("Morfism") */
+            --glass-bg: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.6);
+            --morf-shadow: 
+                -8px -8px 20px rgba(255, 255, 255, 0.9),
+                8px 8px 20px rgba(166, 180, 200, 0.3);
+            --morf-inset: 
+                inset -4px -4px 10px rgba(255, 255, 255, 0.9),
+                inset 4px 4px 10px rgba(166, 180, 200, 0.2);
+            
+            --font-main: 'Plus Jakarta Sans', sans-serif;
+            --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-fast: all 0.3s ease;
+        }
+
+        /* ==========================================================================
+           2. BASE RESET & SCROLLBAR ARCHITECTURE
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            outline: none;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+            overflow-x: hidden;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-main); 
+            color: var(--text-main); 
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+            border: 2px solid var(--bg-main);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-fast);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .section-padding {
+            padding: 140px 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* ==========================================================================
+           3. INTRO ANIMATION LOADER CONFIGURATION
+           ========================================================================== */
+        #intro-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-main);
+            z-index: 99999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .morf-loader-container {
+            position: relative;
+            padding: 60px 100px;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 30px;
+            box-shadow: var(--morf-shadow);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: loaderReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+        }
+
+        .morf-logo-sphere {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            box-shadow: var(--morf-shadow), var(--morf-inset);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .morf-logo-sphere::before {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+            animation: spherePulse 2s infinite ease-in-out;
+        }
+
+        .loader-brand-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: textRiseUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.8s;
+        }
+
+        .loader-brand-tagline {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: textRiseUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards 1s;
+        }
+
+        .loader-progress-bar {
+            width: 200px;
+            height: 6px;
+            background: var(--bg-main);
+            border-radius: 10px;
+            box-shadow: var(--morf-inset);
+            overflow: hidden;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .loader-progress-fill {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--accent), var(--highlight));
+            border-radius: 10px;
+            animation: fillProgress 2.5s cubic-bezier(0.65, 0.05, 0.36, 1) forwards 0.3s;
+        }
+
+        @keyframes loaderReveal { to { opacity: 1; transform: scale(1); } }
+        @keyframes spherePulse {
+            0%, 100% { transform: scale(0.85); opacity: 0.7; box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
+            50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
+        }
+        @keyframes textRiseUp { to { opacity: 1; transform: translateY(0); } }
+        @keyframes fillProgress { to { width: 100%; } }
+        @keyframes exitSlideUp { to { transform: translateY(-100%); opacity: 0; visibility: hidden; } }
+
+        /* Scroll Animation Target Foundations */
+        .reveal { opacity: 0; transform: translateY(50px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .reveal-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-left.active { opacity: 1; transform: translateX(0); }
+        .reveal-right { opacity: 0; transform: translateX(50px); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal-right.active { opacity: 1; transform: translateX(0); }
+        .scale-up { opacity: 0; transform: scale(0.95); transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .scale-up.active { opacity: 1; transform: scale(1); }
+
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        /* ==========================================================================
+           4. SITE HEADER SYSTEM (DUPLICATED FOR EXACT RUNTIME MATCH)
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: transparent;
+            transition: var(--transition-smooth);
+            padding: 25px 0;
+        }
+
+        header.scrolled {
+            background: rgba(26, 26, 46, 0.95); 
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            padding: 15px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: var(--primary); 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        header.scrolled .logo {
+            color: var(--white);
+        }
+
+        .logo-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        nav ul {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        nav ul a {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--primary);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        header.scrolled nav ul a {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        header.scrolled nav ul a:hover {
+            color: var(--highlight);
+        }
+
+        nav ul a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent); 
+            transition: var(--transition-fast);
+        }
+
+        nav ul a:hover::after {
+            width: 100%;
+        }
+
+        .nav-btn {
+            background: var(--primary) !important;
+            color: var(--white) !important;
+            padding: 12px 28px !important;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(26, 26, 46, 0.2);
+            transition: var(--transition-fast) !important;
+        }
+
+        header.scrolled .nav-btn {
+            background: var(--accent) !important;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+            background: var(--accent) !important;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        header.scrolled .menu-toggle {
+            color: var(--white);
+        }
+
+        /* ==========================================================================
+           5. ULTRA-PREMIUM REVOLUTIONARY CONTACT HERO SECTION
+           ========================================================================== */
+        #contact-hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 140px;
+            overflow: hidden;
+            background: radial-gradient(circle at 15% 15%, rgba(37, 99, 235, 0.12) 0%, transparent 60%),
+                        radial-gradient(circle at 85% 85%, rgba(0, 212, 255, 0.1) 0%, transparent 60%);
+        }
+
+        .contact-hero-grid {
+            display: grid;
+            grid-template-columns: 1.10fr 0.90fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .contact-hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent);
+            box-shadow: var(--morf-shadow);
+            margin-bottom: 25px;
+            border: 1px solid var(--glass-border);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+            line-height: 1.15;
+        }
+
+        .contact-hero-title span {
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 620px;
+        }
+
+        /* 3D Dynamic Interactive Canvas Frame */
+        .world-node-wrapper {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 40px;
+            box-shadow: var(--morf-shadow);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #world-matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: auto;
+            cursor: grab;
+        }
+        #world-matrix-canvas:active { cursor: grabbing; }
+
+        .canvas-overlay-card {
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+            background: rgba(26, 26, 46, 0.9);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 16px;
+            color: var(--white);
+            pointer-events: none;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .canvas-overlay-card h5 { color: var(--highlight); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+        .canvas-overlay-card p { font-size: 1.1rem; font-weight: 700; }
+
+        /* ==========================================================================
+           6. INTEGRATED CONTACT INTERACTIVE GATEWAY & MATRIX FORMS
+           ========================================================================== */
+        .section-header {
+            text-align: center;
+            max-width: 750px;
+            margin: 0 auto 80px;
+        }
+
+        .section-title-tag {
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-main-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+        }
+
+        .contact-layout-grid {
+            display: grid;
+            grid-template-columns: 0.85fr 1.15fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-channels-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .channel-card-interactive {
+            background: var(--white);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--morf-shadow);
+            padding: 35px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .channel-card-interactive:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(166,180,200,0.35);
+        }
+
+        .channel-icon-sphere {
+            width: 65px;
+            height: 65px;
+            border-radius: 20px;
+            background: var(--bg-main);
+            box-shadow: var(--morf-inset);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.6rem;
+            color: var(--accent);
+            transition: var(--transition-smooth);
+        }
+
+        .channel-card-interactive:hover .channel-icon-sphere {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .channel-card-interactive.whatsapp-premium .channel-icon-sphere {
+            background: rgba(34, 197, 94, 0.1);
+            color: #22C55E;
+        }
+        .channel-card-interactive.whatsapp-premium:hover .channel-icon-sphere {
+            background: #22C55E;
+            color: var(--white);
+        }
+
+        .channel-details-box span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .channel-details-box p {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .whatsapp-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #22C55E !important;
+            color: var(--white) !important;
+            box-shadow: 0 10px 25px rgba(34, 197, 94, 0.3) !important;
+            margin-top: 12px;
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+        }
+        .whatsapp-cta-link:hover {
+            background: #16a34a !important;
+            box-shadow: 0 15px 30px rgba(22, 163, 74, 0.4) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Master Glassmorphic Form Infrastructure */
+        .morf-form-wrapper {
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            box-shadow: var(--morf-shadow);
+            padding: 55px;
+            border-radius: 35px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .form-row-matrix {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .form-row-matrix.split-2 { grid-template-columns: repeat(2, 1fr); }
+
+        .input-group-floating {
+            position: relative;
+            width: 100%;
+        }
+
+        .input-group-floating input, 
+        .input-group-floating select, 
+        .input-group-floating textarea {
+            width: 100%;
+            padding: 18px 25px;
+            background: var(--bg-main);
+            border: 1px solid transparent;
+            box-shadow: var(--morf-inset);
+            border-radius: 14px;
+            font-family: var(--font-main);
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            transition: var(--transition-fast);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .input-group-floating select { cursor: pointer; color: var(--primary); }
+
+        .input-group-floating textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .input-group-floating label {
+            position: absolute;
+            left: 25px;
+            top: 18px;
+            color: var(--text-muted);
+            font-weight: 500;
+            pointer-events: none;
+            transition: var(--transition-fast);
+        }
+
+        /* Fixed floating conditions preventing overlap states */
+        .input-group-floating input:focus ~ label,
+        .input-group-floating input:valid ~ label,
+        .input-group-floating select:focus ~ label,
+        .input-group-floating select:not([value=""]):valid ~ label,
+        .input-group-floating select:active ~ label,
+        .input-group-floating textarea:focus ~ label,
+        .input-group-floating textarea:valid ~ label {
+            top: -12px;
+            left: 15px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            background: var(--accent);
+            color: var(--white);
+            padding: 2px 12px;
+            border-radius: 6px;
+            box-shadow: 0 4px 10px rgba(37,99,235,0.2);
+        }
+
+        .input-group-floating input:focus, 
+        .input-group-floating select:focus, 
+        .input-group-floating textarea:focus {
+            box-shadow: inset -2px -2px 6px rgba(255,255,255,0.7), 
+                        inset 2px 2px 6px rgba(166,180,200,0.1),
+                        0 0 0 2px var(--accent);
+            background: var(--white);
+        }
+
+        .select-chevron-node {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            pointer-events: none;
+            font-size: 0.9rem;
+        }
+
+        /* Premium Estimator Infrastructure Slider Module */
+        .premium-estimator-box {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--glass-border);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: var(--morf-inset);
+            margin-bottom: 35px;
+        }
+
+        .estimator-label-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .estimator-title { font-size: 1rem; font-weight: 700; color: var(--primary); }
+        .estimator-output { font-size: 1.1rem; font-weight: 800; color: var(--accent); background: var(--white); padding: 4px 14px; border-radius: 8px; box-shadow: var(--morf-shadow); }
+
+        .premium-range-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 8px;
+            border-radius: 5px;
+            background: #E2E8F0;
+            outline: none;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .premium-range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            cursor: pointer;
+            box-shadow: 0 3px 8px rgba(37,99,235,0.4);
+            transition: transform 0.1s ease;
+        }
+        .premium-range-slider::-webkit-slider-thumb:hover { transform: scale(1.2); }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 36px;
+            font-weight: 700;
+            border-radius: 14px;
+            transition: var(--transition-smooth);
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            box-shadow: 0 10px 25px rgba(26, 26, 46, 0.15);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-primary:hover::before { left: 100%; }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(26, 26, 46, 0.3);
+            background: var(--accent); 
+        }
+
+        .form-status-alert {
+            padding: 18px 25px;
+            border-radius: 12px;
+            margin-top: 25px;
+            font-weight: 600;
+            display: none;
+            align-items: center;
+            gap: 12px;
+            line-height: 1.4;
+        }
+        .form-status-alert.success {
+            background: rgba(34,197,94,0.12);
+            color: #16a34a;
+            border: 1px solid rgba(34,197,94,0.25);
+        }
+
+        .submission-overlay {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background:
+                radial-gradient(circle at top, rgba(37, 99, 235, 0.28), transparent 34%),
+                radial-gradient(circle at bottom right, rgba(0, 212, 255, 0.2), transparent 30%),
+                rgba(10, 14, 32, 0.78);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+            z-index: 99998;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.6s ease, visibility 0.6s ease;
+            overflow: hidden;
+        }
+
+        .submission-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .submission-overlay::before,
+        .submission-overlay::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 72px 72px;
+            opacity: 0.14;
+            animation: submissionGridDrift 18s linear infinite;
+        }
+
+        .submission-overlay::after {
+            background-size: 120px 120px;
+            opacity: 0.08;
+            animation-direction: reverse;
+        }
+
+        .submission-sparkles {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .submission-sparkles span {
+            position: absolute;
+            width: 9px;
+            height: 9px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, var(--accent), var(--highlight));
+            box-shadow: 0 0 18px rgba(0, 212, 255, 0.7);
+            animation: submissionSpark 3.8s ease-in-out infinite;
+        }
+
+        .submission-card {
+            position: relative;
+            width: min(560px, 100%);
+            padding: 42px 36px 34px;
+            border-radius: 32px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.34), var(--morf-shadow);
+            text-align: center;
+            transform: translateY(42px) scale(0.94);
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1;
+        }
+
+        .submission-overlay.visible .submission-card {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .submission-close-btn {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 42px;
+            height: 42px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.14);
+            color: var(--white);
+            cursor: pointer;
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .submission-close-btn:hover {
+            transform: scale(1.08);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .submission-icon-shell {
+            width: 112px;
+            height: 112px;
+            margin: 0 auto 18px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(0, 212, 255, 0.18));
+            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18), 0 0 50px rgba(0, 212, 255, 0.24);
+            animation: submissionFloat 4.2s ease-in-out infinite;
+        }
+
+        .submission-icon-shell i {
+            font-size: 3.2rem;
+            color: #22c55e;
+            text-shadow: 0 0 24px rgba(34, 197, 94, 0.45);
+        }
+
+        .submission-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            color: rgba(255, 255, 255, 0.85);
+            text-transform: uppercase;
+            letter-spacing: 2.6px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .submission-title {
+            margin-top: 18px;
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1.05;
+            color: var(--white);
+            letter-spacing: -0.04em;
+        }
+
+        .submission-copy {
+            margin-top: 16px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .submission-meta {
+            margin-top: 24px;
+            padding: 14px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        @keyframes submissionGridDrift {
+            from { transform: translate3d(0, 0, 0); }
+            to { transform: translate3d(72px, 72px, 0); }
+        }
+
+        @keyframes submissionFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        @keyframes submissionSpark {
+            0%, 100% { transform: scale(0.7); opacity: 0.45; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .submission-overlay,
+            .submission-card,
+            .submission-overlay::before,
+            .submission-overlay::after,
+            .submission-sparkles span,
+            .submission-icon-shell {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* ==========================================================================
+           7. ELASTIC PHYSICS FAQ SYSTEM MODULE
+           ========================================================================== */
+        #faq-matrix-layer {
+            background: linear-gradient(180deg, var(--bg-main) 0%, rgba(234, 242, 255, 0.5) 50%, var(--bg-main) 100%);
+        }
+
+        .faq-accordion-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .faq-node-item {
+            background: var(--white);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            box-shadow: var(--morf-shadow);
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+
+        .faq-trigger-header {
+            width: 100%;
+            padding: 25px 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            gap: 20px;
+        }
+
+        .faq-trigger-header h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            transition: var(--transition-fast);
+        }
+
+        .faq-icon-indicator {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--bg-main);
+            box-shadow: var(--morf-inset);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--accent);
+            font-size: 0.9rem;
+            transition: var(--transition-smooth);
+            flex-shrink: 0;
+        }
+
+        .faq-node-item.active {
+            border-color: rgba(37,99,235,0.3);
+            box-shadow: 0 20px 40px rgba(166,180,200,0.25);
+        }
+
+        .faq-node-item.active .faq-trigger-header h4 {
+            color: var(--accent);
+        }
+
+        .faq-node-item.active .faq-icon-indicator {
+            transform: rotate(180deg);
+            background: var(--accent);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(37,99,235,0.3);
+        }
+
+        .faq-response-panel {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .faq-response-content {
+            padding: 0 35px 30px 35px;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            border-top: 1px solid rgba(0,0,0,0.02);
+        }
+
+        /* ==========================================================================
+           8. PREMIUM DARK FOOTER SYSTEM (EXACT REPLICATION FROM INDEX)
+           ========================================================================== */
+        footer {
+            background: var(--primary); 
+            color: rgba(255, 255, 255, 0.7);
+            padding: 100px 0 40px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand-column h3 {
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 20px; 
+        }
+
+        .footer-brand-column p {
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 25px; 
+        }
+
+        .footer-social-row {
+            display: flex;
+            gap: 15px; 
+        }
+
+        .social-link-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: var(--transition-fast);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-link-circle:hover {
+            background: var(--accent); 
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .footer-links-column h4 {
+            color: var(--white);
+            font-size: 1.15rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .footer-links-column h4::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        .footer-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; 
+        }
+
+        .footer-links-list a {
+            font-size: 0.95rem;
+            transition: var(--transition-fast);
+        }
+
+        .footer-links-list a:hover {
+            color: var(--highlight); 
+            transform: translateX(5px);
+        }
+
+        .footer-links-column h4 + p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom-bar {
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem; 
+        }
+
+        /* ==========================================================================
+           9. HIGH-FIDELITY RESPONSIVE MATRIX MEDIA LAYERS
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .contact-hero-title { font-size: 3.2rem; }
+            .contact-hero-grid, .contact-layout-grid { grid-template-columns: 1fr; gap: 50px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 90px 0; }
+            .contact-hero-grid { text-align: center; }
+            .contact-hero-desc { margin: 0 auto 30px; }
+            .world-node-wrapper { height: 350px; }
+            .form-row-matrix.split-2 { grid-template-columns: 1fr; gap: 30px; }
+            .morf-form-wrapper { padding: 35px 25px; border-radius: 25px; }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: var(--primary);
+                padding: 100px 40px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+                transition: var(--transition-smooth);
+            }
+            nav.open { right: 0; }
+            nav ul { flex-direction: column; align-items: flex-start; gap: 30px; }
+            header.scrolled nav ul a { color: rgba(255,255,255,0.8); }
+            nav ul a { color: var(--white); font-size: 1.2rem; }
+            .menu-toggle { display: block; }
+            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-bottom-bar { flex-direction: column; gap: 20px; text-align: center; }
+        }
+
+        #mobileMenuBtn{
+    display:none;
+}
+
+@media(max-width:768px){
+
+    #mobileMenuBtn{
+        display:flex;
+        position:fixed;
+        top:15px;
+        left:15px;
+        width:50px;
+        height:50px;
+        z-index:10000;
+
+        border:none;
+        border-radius:12px;
+
+        background:#0D0E22;
+        color:white;
+
+        justify-content:center;
+        align-items:center;
+
+        font-size:20px;
+
+        box-shadow:0 0 20px rgba(0,0,0,.4);
+    }
+}
+
+/* =====================================
+   COMPLETE MOBILE OPTIMIZATION
+===================================== */
+
+img,
+canvas,
+iframe,
+video{
+    max-width:100%;
+    height:auto;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+*{
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+}
+
+@media(max-width:768px){
+
+    .container{
+        padding:0 20px;
+    }
+
+    .contact-hero{
+        text-align:center;
+    }
+
+    .contact-hero-title{
+        font-size:2.4rem;
+        line-height:1.2;
+    }
+
+    .contact-hero-desc{
+        font-size:1rem;
+    }
+
+    .section-main-title{
+        font-size:2rem;
+    }
+
+    .section-header{
+        margin-bottom:50px;
+    }
+
+    .world-node-wrapper{
+        height:280px;
+    }
+
+    .channel-card-interactive{
+        padding:20px;
+        gap:15px;
+    }
+
+    .channel-icon-sphere{
+        width:55px;
+        height:55px;
+        font-size:1.2rem;
+    }
+
+    .channel-details-box p{
+        font-size:1rem;
+    }
+
+    .morf-form-wrapper{
+        padding:25px 20px;
+    }
+
+    .btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .faq-trigger-header{
+        padding:20px;
+    }
+
+    .faq-trigger-header h4{
+        font-size:1rem;
+    }
+
+    .faq-response-content{
+        padding:0 20px 20px;
+        font-size:.95rem;
+    }
+}
+
+@media(max-width:480px){
+
+    .contact-hero-title{
+        font-size:2rem;
+    }
+
+    .section-main-title{
+        font-size:1.7rem;
+    }
+
+    .contact-hero-tag{
+        font-size:.75rem;
+        padding:6px 14px;
+    }
+
+    .loader-brand-title{
+        font-size:1.8rem;
+    }
+
+    .morf-loader-container{
+        padding:40px 20px;
+        width:90%;
+    }
+
+    .channel-card-interactive{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .footer-social-row{
+        justify-content:center;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <button id="mobileMenuBtn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <div id="intro-loader">
+        <div class="morf-loader-container">
+            <div class="morf-logo-sphere"></div>
+            <h1 class="loader-brand-title">AJ Technologies</h1> 
+            <p class="loader-brand-tagline">We Build, You Grow</p> 
+            <div class="loader-progress-bar">
+                <div class="loader-progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <header id="site-header">
+        <div class="container">
+            <a href="/" class="logo">
+                AJ Technologies <span class="logo-dot"></span> 
+            </a>
+            <nav id="main-navigation-node">
+                <ul>
+                    <li><a href="/">Home</a></li> 
+                    <li><a href="/services/">Services</a></li> 
+                    <li><a href="/portfolio/">Portfolio</a></li> 
+                    <li><a href="/about/">About</a></li>
+                    <li><a href="/contact/" class="nav-btn">Contact Us</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="contact-hero">
+        <div class="container">
+            <div class="contact-hero-grid">
+                <div class="hero-text-box reveal-left">
+                    <div class="contact-hero-tag">
+                        <i class="fa-solid fa-satellite-dish"></i> Structural Access Hub
+                    </div>
+                    <h1 class="contact-hero-title">Let's Blueprint Your<br><span>Digital Ecosystem.</span></h1>
+                    <p class="contact-hero-desc">Connect directly with our Tuticorin core development office. We synthesize robust web properties built to scale commerce paradigms globally. Clear your operational pipeline while our engineering cluster models your silent salesman.</p>
+                </div>
+                
+                <div class="world-node-wrapper scale-up">
+                    <canvas id="world-matrix-canvas"></canvas>
+                    <div class="canvas-overlay-card">
+                        <h5>Engineering Hub</h5>
+                        <p>Tuticorin, TN, India</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engagement-matrix" class="section-padding" style="background-color: transparent;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-title-tag">Ecosystem Blueprint</span>
+                <h2 class="section-main-title">Configure Specifications</h2>
+                <p style="color: var(--text-muted);">Detail your interface parameters below. Our architecture matrix analyzes technical boundaries to accelerate milestone maps cleanly.</p>
+            </div>
+
+            <div class="contact-layout-grid">
+                <div class="contact-channels-panel reveal-left">
+                    <div class="channel-card-interactive whatsapp-premium">
+                        <div class="channel-icon-sphere"><i class="fa-brands fa-whatsapp"></i></div>
+                        <div class="channel-details-box">
+                            <span>Preferred Lead Engine</span>
+                            <p>Instant WhatsApp Connect</p>
+                            <a href="https://wa.me/919092631501" target="_blank" class="whatsapp-cta-link">
+                                Chat On WhatsApp <i class="fa-brands fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="channel-card-interactive">
+                        <div class="channel-icon-sphere"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="channel-details-box">
+                            <span>Mailing Address</span>
+                            <p style="font-size:0.95rem; word-break: break-all;">ajtechnologieslimited@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="channel-card-interactive">
+                        <div class="channel-icon-sphere"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="channel-details-box">
+                            <span>Office Located in</span>
+                            <p>Tuticorin, Tamil Nadu</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="morf-form-wrapper reveal-right">
+                    <form id="contact-form-system" method="POST" >
+                            {% csrf_token %}
+                        <div class="form-row-matrix split-2">
+                            <div class="input-group-floating">
+                                <input type="text" id="client_name" name="username" required>
+                                <label for="client_name">Full Name</label>
+                            </div>
+                            <div class="input-group-floating">
+                                <input type="tel" id="client_phone" name="phone" required>
+                                <label for="client_phone">Phone Number</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row-matrix">
+                            <div class="input-group-floating">
+                                <input type="email" id="client_email" name="email" required>
+                                <label for="client_email">Email Address</label>
+                            </div>
+                        </div>
+
+                        <div class="form-row-matrix">
+                            <div class="input-group-floating">
+                                <textarea id="client_message" name="message" required></textarea>
+                                <label for="client_message">Project Specifications / Operation Roadmap</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                            Send Specifications <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+
+                        <div class="form-status-alert success" id="form-alert-node">
+                            <i class="fa-solid fa-circle-check"></i> Project structural parameters logged successfully. Our engineering cluster will connect via email shortly.
+                        </div>
+
+                        {% if submission_success %}
+                        <div class="submission-overlay" id="submission-success-overlay" role="dialog" aria-modal="true" aria-live="polite">
+                            <div class="submission-sparkles">
+                                <span style="top: 14%; left: 18%; animation-delay: 0s;"></span>
+                                <span style="top: 22%; right: 16%; animation-delay: 0.7s;"></span>
+                                <span style="bottom: 18%; left: 14%; animation-delay: 1.2s;"></span>
+                                <span style="bottom: 22%; right: 20%; animation-delay: 1.8s;"></span>
+                                <span style="top: 48%; left: 8%; animation-delay: 2.1s;"></span>
+                                <span style="top: 56%; right: 9%; animation-delay: 2.6s;"></span>
+                            </div>
+                            <div class="submission-card">
+                                <button type="button" class="submission-close-btn" id="submission-close-btn" aria-label="Close confirmation"><i class="fa-solid fa-xmark"></i></button>
+                                <div class="submission-icon-shell"><i class="fa-solid fa-circle-check"></i></div>
+                                <span class="submission-kicker">Transmission complete</span>
+                                <h3 class="submission-title">Your email is received</h3>
+                                <p class="submission-copy">Our team will contact you soon.</p>
+                                <div class="submission-meta">
+                                    {{ submission_message }}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq-matrix-layer" class="section-padding">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-title-tag">Briefing Matrix</span>
+                <h2 class="section-main-title">Frequently Answered Queries</h2>
+                <p style="color: var(--text-muted);">Review core pre-engineering operational procedures mapped for transparency targets.</p>
+            </div>
+
+            <div class="faq-accordion-container reveal">
+                <div class="faq-node-item">
+                    <button class="faq-trigger-header">
+                        <h4>What is the standard delivery timeline for custom platform frameworks?</h4>
+                        <div class="faq-icon-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-response-panel">
+                        <div class="faq-response-content">
+                            Standard business structures and single landing assets are finalized within shorter execution tracks. High-volume custom web frameworks requiring full backend validation metrics transition smoothly within explicit timeline milestones designed at onboarding.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-node-item">
+                    <button class="faq-trigger-header">
+                        <h4>Will my application feature total mobile adaptability and optimization parameters?</h4>
+                        <div class="faq-icon-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-response-panel">
+                        <div class="faq-response-content">
+                            Absolutely. Every layout engineered by AJ Technologies utilizes modern fluid layout structures and image optimization algorithms. This guarantees rapid performance speeds across standard mobile displays, tablets, and massive desktop viewports.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-node-item">
+                    <button class="faq-trigger-header">
+                        <h4>Do you supply operational engineering support after production handoff?</h4>
+                        <div class="faq-icon-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-response-panel">
+                        <div class="faq-response-content">
+                            Yes. We assume comprehensive ownership of your infrastructure roadmap. Post-launch assistance tiers enclose ongoing security audits, rolling performance optimizations, data verification configurations, and platform document training modules.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand-column">
+                    <h3>AJ Technologies</h3> 
+                    <p>We Build, You Grow. Elite website architectures built to elevate operational scale seamlessly. </p>
+                    <div class="footer-social-row">
+                        <a href="https://www.linkedin.com/in/aj-technologies-b17173412?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link-circle"><i class="fa-brands fa-linkedin-in"></i></a> 
+                        <a href="https://www.instagram.com/aj_technologies_ltd_?igsh=Ym5hdXhlZ3V2bnlq" class="social-link-circle"><i class="fa-brands fa-instagram"></i></a> 
+                        <a href="https://youtube.com/@aj_technologies?si=X7VMm5-qdOlXsbOC" class="social-link-circle"><i class="fa-brands fa-youtube"></i></a> 
+                    </div>
+                </div>
+                
+                <div class="footer-links-column">
+                    <h4>Navigation</h4>
+                    <div class="footer-links-list">
+                        <a href="/">Home</a> 
+                        <a href="/services/">Our Services</a> 
+                        <a href="/portfolio/">Portfolio</a>
+                        <a href="/about/">About Us</a> 
+                        <a href="/contact/">Contact Hub</a> 
+                    </div>
+                </div>
+
+                <div class="footer-links-column">
+                    <h4>Operations</h4>
+                    <p>Exclusively generated for structural deployments across Tamil Nadu and global digital nodes. </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p>&copy; Copyright 2026 AJ Technologies. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            const submissionOverlay = document.getElementById('submission-success-overlay');
+
+            if (submissionOverlay) {
+                let overlayClosed = false;
+
+                const closeSubmissionOverlay = () => {
+                    if (overlayClosed) {
+                        return;
+                    }
+
+                    overlayClosed = true;
+                    submissionOverlay.classList.remove('visible');
+                    document.body.style.overflow = '';
+
+                    setTimeout(() => {
+                        submissionOverlay.remove();
+                    }, 650);
+                };
+
+                document.body.style.overflow = 'hidden';
+
+                requestAnimationFrame(() => {
+                    submissionOverlay.classList.add('visible');
+                });
+
+                const closeButton = document.getElementById('submission-close-btn');
+
+                if (closeButton) {
+                    closeButton.addEventListener('click', closeSubmissionOverlay);
+                }
+
+                submissionOverlay.addEventListener('click', (event) => {
+                    if (event.target === submissionOverlay) {
+                        closeSubmissionOverlay();
+                    }
+                });
+
+                const escapeHandler = (event) => {
+                    if (event.key === 'Escape') {
+                        closeSubmissionOverlay();
+                    }
+                };
+
+                document.addEventListener('keydown', escapeHandler);
+
+                setTimeout(closeSubmissionOverlay, 6000);
+            }
+
+            // Preloader Departure Scenario Engine Configuration
+            const loaderNode = document.getElementById('intro-loader');
+            setTimeout(() => {
+                loaderNode.style.animation = "exitSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                setTimeout(() => {
+                    loaderNode.remove();
+                    revealOnScroll();
+                }, 1000);
+            }, 2000); 
+
+            // High Fidelity Background Particle Vector Matrix (Matches Index Structure)
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let particlesArray = [];
+            
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = Math.random() * 0.4 - 0.2;
+                    this.speedY = Math.random() * 0.4 - 0.2;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.x > canvas.width) this.x = 0;
+                    else if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    else if (this.y < 0) this.y = canvas.height;
+                }
+                draw() {
+                    ctx.fillStyle = 'rgba(37, 99, 235, 0.25)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particlesArray = [];
+                const count = Math.min(Math.floor(window.innerWidth / 15), 80);
+                for (let i = 0; i < count; i++) { particlesArray.push(new Particle()); }
+            }
+            initParticles();
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            animateParticles();
+
+            
+
+            // Tracking Header Scroll Transitions & Activation Triggers
+            const siteHeader = document.getElementById('site-header');
+            const elementsToReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .scale-up');
+
+            function revealOnScroll() {
+                if (window.scrollY > 50) { siteHeader.classList.add('scrolled'); } 
+                else { siteHeader.classList.remove('scrolled'); }
+
+                const triggerBottom = window.innerHeight * 0.88;
+                elementsToReveal.forEach(element => {
+                    const elementTop = element.getBoundingClientRect().top;
+                    if (elementTop < triggerBottom) { element.classList.add('active'); }
+                });
+            }
+            window.addEventListener('scroll', revealOnScroll);
+
+            // Dynamic Estimator Slider Numerical Hook Module
+            const rangeSlider = document.getElementById('architecture-page-slider');
+            const sliderOutput = document.getElementById('slider-output-node');
+            if(rangeSlider && sliderOutput) {
+                rangeSlider.addEventListener('input', function() {
+                    sliderOutput.textContent = `${this.value} ${this.value == 1 ? 'Page' : 'Pages'}`;
+                });
+            }
+
+            // Elastic Physics Accordion Module Logic 
+            const faqHeaders = document.querySelectorAll('.faq-trigger-header');
+            faqHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const parentNode = this.parentElement;
+                    const responsePanel = parentNode.querySelector('.faq-response-panel');
+                    
+                    if (parentNode.classList.contains('active')) {
+                        responsePanel.style.maxHeight = null;
+                        parentNode.classList.remove('active');
+                    } else {
+                        // Close sibling panels smoothly
+                        document.querySelectorAll('.faq-node-item').forEach(item => {
+                            item.classList.remove('active');
+                            item.querySelector('.faq-response-panel').style.maxHeight = null;
+                        });
+                        parentNode.classList.add('active');
+                        responsePanel.style.maxHeight = responsePanel.scrollHeight + "px";
+                    }
+                });
+            });
+
+            // Revolutionary World Network Hub Interactive Canvas Matrix Engine 
+            const worldCanvas = document.getElementById('world-matrix-canvas');
+            if (worldCanvas) {
+                const wCtx = worldCanvas.getContext('2d');
+                let wWidth, wHeight;
+                let globeNodes = [];
+                let rotationAngleX = 0, rotationAngleY = 0;
+                let targetAngleX = 0, targetAngleY = 0;
+                let isDragging = false, lastMouseX = 0, lastMouseY = 0;
+
+                function resizeWorldCanvas() {
+                    wWidth = worldCanvas.parentNode.clientWidth;
+                    wHeight = worldCanvas.parentNode.clientHeight;
+                    worldCanvas.width = wWidth;
+                    worldCanvas.height = wHeight;
+                }
+                window.addEventListener('resize', resizeWorldCanvas);
+                resizeWorldCanvas();
+
+                // Build spherical point clouds modeling high-tech globe networks
+                const totalNodesCount = 180;
+                const radiusOfGlobe = Math.min(wWidth, wHeight) * 0.38;
+
+                for (let i = 0; i < totalNodesCount; i++) {
+                    let theta = Math.acos(Math.random() * 2 - 1);
+                    let phi = Math.random() * Math.PI * 2;
+                    globeNodes.push({
+                        cx: radiusOfGlobe * Math.sin(theta) * Math.cos(phi),
+                        cy: radiusOfGlobe * Math.sin(theta) * Math.sin(phi),
+                        cz: radiusOfGlobe * Math.cos(theta)
+                    });
+                }
+
+                // Interactive Pointer Handlers Mapping Drag Actions
+                worldCanvas.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    lastMouseX = e.clientX;
+                    lastMouseY = e.clientY;
+                });
+                window.addEventListener('mousemove', (e) => {
+                    if (!isDragging) {
+                        // Passive hover drift mapping logic
+                        targetAngleY = (e.clientX - window.innerWidth/2) * 0.0003;
+                        targetAngleX = (e.clientY - window.innerHeight/2) * 0.0003;
+                        return;
+                    }
+                    let deltaX = e.clientX - lastMouseX;
+                    let deltaY = e.clientY - lastMouseY;
+                    rotationAngleY += deltaX * 0.005;
+                    rotationAngleX += deltaY * 0.005;
+                    lastMouseX = e.clientX;
+                    lastMouseY = e.clientY;
+                });
+                window.addEventListener('mouseup', () => isDragging = false);
+
+                function drawGlobeMatrix() {
+                    wCtx.clearRect(0, 0, wWidth, wHeight);
+                    
+                    // Smooth structural velocity damping calculations
+                    if (!isDragging) {
+                        rotationAngleY += (targetAngleY - rotationAngleY) * 0.05 + 0.001;
+                        rotationAngleX += (targetAngleX - rotationAngleX) * 0.05;
+                    }
+
+                    let sinY = Math.sin(rotationAngleY), cosY = Math.cos(rotationAngleY);
+                    let sinX = Math.sin(rotationAngleX), cosX = Math.cos(rotationAngleX);
+
+                    let projectedPoints = [];
+
+                    globeNodes.forEach(node => {
+                        // Rotate around Y axis
+                        let x1 = node.cx * cosY - node.cz * sinY;
+                        let z1 = node.cx * sinY + node.cz * cosY;
+                        // Rotate around X axis
+                        let y2 = node.cy * cosX - z1 * sinX;
+                        let z2 = node.cy * sinX + z1 * cosX;
+
+                        // Perspective computation tracking center shifts
+                        let depthScale = (z2 + radiusOfGlobe * 2) / (radiusOfGlobe * 2);
+                        let screenX = x1 + wWidth / 2;
+                        let screenY = y2 + wHeight / 2;
+
+                        if (z2 > -radiusOfGlobe) { // Clip deep backfacing coordinates lightly
+                            projectedPoints.push({x: screenX, y: screenY, z: z2, scale: depthScale});
+                        }
+                    });
+
+                    // Render dynamic connection pathways matching enterprise digital maps
+                    wCtx.strokeStyle = 'rgba(37, 99, 235, 0.08)';
+                    wCtx.lineWidth = 0.5;
+                    for (let i = 0; i < projectedPoints.length; i += 6) {
+                        wCtx.beginPath();
+                        wCtx.moveTo(projectedPoints[i].x, projectedPoints[i].y);
+                        let nextNode = projectedPoints[(i + 15) % projectedPoints.length];
+                        wCtx.lineTo(nextNode.x, nextNode.y);
+                        wCtx.stroke();
+                    }
+
+                    // Render node vector spheres with scale deep structures
+                    projectedPoints.forEach(pt => {
+                        let dynamicAlpha = Math.max(0.1, pt.scale * 0.6);
+                        wCtx.fillStyle = `rgba(0, 212, 255, ${dynamicAlpha})`;
+                        wCtx.beginPath();
+                        wCtx.arc(pt.x, pt.y, Math.max(1, pt.scale * 3.5), 0, Math.PI * 2);
+                        wCtx.fill();
+
+                        // Core anchor node highlighted mapping regional center point
+                        if (Math.abs(pt.z) < 15 && Math.random() < 0.005) {
+                            wCtx.fillStyle = '#2563EB';
+                            wCtx.beginPath();
+                            wCtx.arc(pt.x, pt.y, 7, 0, Math.PI * 2);
+                            wCtx.fill();
+                        }
+                    });
+
+                    requestAnimationFrame(drawGlobeMatrix);
+                }
+                drawGlobeMatrix();
+            }
+        });
+
+        // Verification Event Handling Panel Logic Module
+        function handleFormSubmission(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('client_name').value.trim();
+            const phone = document.getElementById('client_phone').value.trim();
+            const message = document.getElementById('client_message').value.trim();
+            const alertBox = document.getElementById('form-alert-node');
+
+            if (name && phone && message) {
+                alertBox.style.display = 'flex';
+                alertBox.style.opacity = '0';
+                setTimeout(() => {
+                    alertBox.style.transition = 'opacity 0.4s ease';
+                    alertBox.style.opacity = '1';
+                }, 50);
+                
+                document.getElementById('contact-form-system').reset();
+                document.querySelectorAll('.input-group-floating input, .input-group-floating textarea, .input-group-floating select').forEach(el => {
+                    if(el.tagName !== 'SELECT') el.value = "";
+                });
+                const sliderOutput = document.getElementById('slider-output-node');
+                const rangeSlider = document.getElementById('architecture-page-slider');
+                if(sliderOutput && rangeSlider) {
+                    rangeSlider.value = 5;
+                    sliderOutput.textContent = "5 Pages";
+                }
+            }
+        }
+
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+const sidebar = document.querySelector('.cyber-sidebar-hull');
+
+mobileMenuBtn.addEventListener('click',()=>{
+
+    sidebar.classList.toggle('active');
+
+});
+
+document.querySelectorAll('.kinetic-menu-trigger')
+.forEach(link=>{
+
+    link.addEventListener('click',()=>{
+
+        if(window.innerWidth <= 768){
+
+            sidebar.classList.remove('active');
+
+        }
+
+    });
+
+});
+    </script>
+</body>
+</html>
