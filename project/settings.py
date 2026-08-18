@@ -86,13 +86,15 @@ WSGI_APPLICATION = 'project.wsgi.application'
 
 DATABASES = {
     'default': {
-         'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ajtechnologies',
-        'USER': 'root',
-        'PASSWORD':'0803',
-        'HOST':'localhost',
-        'port':'3306'
-       
+        'USER': 'aj_user',
+        'PASSWORD': 'AJTechnologies$0803',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        },
     }
 }
 
