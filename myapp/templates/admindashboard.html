@@ -6,23 +6,76 @@
 
     <title>Admin Executive Engine | AJ Technologies Global Hub</title>
 
+
+
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+
+
     <meta name="description" content="AJ Technologies has received your message and will contact you soon.">
+
+
+
     <meta name="robots" content="noindex, nofollow">
+
+
+
     <meta name="keywords" content="website development company, web design company Tamil Nadu, website developer Tuticorin, ecommerce website development, landing page design, custom website development, AJ Technologies">
+
+
+
     <meta name="author" content="AJ Technologies">
+
+
+
     <meta property="og:title" content="Quantum Executive Engine | AJ Technologies Global Hub">
+
+
+
     <meta property="og:description" content="We build professional websites, e-commerce stores, landing pages and custom web solutions.">
+
+
+
     <meta property="og:image" content="https://ajtechnologiesltd.com/images/og-image.jpg">
+
+
+
     <meta property="og:url" content="https://ajtechnologiesltd.com">
+
+
+
     <meta property="og:type" content="website">
+
+
+
     <meta name="twitter:card" content="summary_large_image">
+
+
+
     <link rel="icon" type="image/png" href="images/favicon.png">
+
+
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
+
+
     <link rel="canonical" href="https://ajtechnologiesltd.com">
+
+
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 
@@ -31,9 +84,15 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
+
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -125,6 +184,8 @@
 
             -webkit-font-smoothing: antialiased;
 
+            -webkit-tap-highlight-color: transparent;
+
         }
 
 
@@ -138,6 +199,8 @@
             background-color: var(--primary-deep);
 
             font-size: 16px;
+
+            width: 100%;
 
         }
 
@@ -154,6 +217,10 @@
             display: flex;
 
             position: relative;
+
+            overflow-x: hidden;
+
+            width: 100%;
 
         }
 
@@ -184,6 +251,10 @@
             font-family: var(--font-display);
 
             letter-spacing: -0.03em;
+
+            overflow-wrap: break-word;
+
+            word-wrap: break-word;
 
         }
 
@@ -285,36 +356,57 @@
 
             box-shadow: 20px 0 80px rgba(0, 0, 0, 0.5);
 
-            /* Enable vertical scrolling if items overflow */
-    overflow-y: auto;
-    /* Optional: Smooth transition style for Firefox */
-    scrollbar-width: thin;
-    scrollbar-color: var(--highlight-neon) var(--primary-deep);
+            overflow-y: auto;
+
+            scrollbar-width: thin;
+
+            scrollbar-color: var(--highlight-neon) var(--primary-deep);
+
+            transition: left 0.4s var(--ease-quantum);
 
         }
 
+
+
         /* Custom Webkit Scrollbar Blueprint for Sidebar */
-.cyber-sidebar-hull::-webkit-scrollbar {
-    width: 6px; /* Slightly sleeker than the main scrollbar */
-}
 
-.cyber-sidebar-hull::-webkit-scrollbar-track {
-    background: rgba(6, 7, 19, 0.5); /* Deep translucent obsidian space */
-    border-radius: 10px;
-}
+        .cyber-sidebar-hull::-webkit-scrollbar {
 
-.cyber-sidebar-hull::-webkit-scrollbar-thumb {
-    /* Contrasting Cyber Kinetic Cyan & Sapphire Blue gradient track */
-    background: linear-gradient(to bottom, var(--highlight-neon), var(--accent-quantum));
-    border-radius: 20px;
-    box-shadow: 0 0 10px var(--highlight-neon);
-}
+            width: 6px;
 
-.cyber-sidebar-hull::-webkit-scrollbar-thumb:hover {
-    /* Full brilliant glow shift on interaction */
-    background: var(--highlight-neon);
-    box-shadow: 0 0 20px var(--highlight-neon), 0 0 40px var(--highlight-neon);
-}
+        }
+
+
+
+        .cyber-sidebar-hull::-webkit-scrollbar-track {
+
+            background: rgba(6, 7, 19, 0.5);
+
+            border-radius: 10px;
+
+        }
+
+
+
+        .cyber-sidebar-hull::-webkit-scrollbar-thumb {
+
+            background: linear-gradient(to bottom, var(--highlight-neon), var(--accent-quantum));
+
+            border-radius: 20px;
+
+            box-shadow: 0 0 10px var(--highlight-neon);
+
+        }
+
+
+
+        .cyber-sidebar-hull::-webkit-scrollbar-thumb:hover {
+
+            background: var(--highlight-neon);
+
+            box-shadow: 0 0 20px var(--highlight-neon), 0 0 40px var(--highlight-neon);
+
+        }
 
 
 
@@ -374,6 +466,8 @@
 
         }
 
+
+
         .hologram-node-pulse::after {
 
             content: '';
@@ -393,6 +487,8 @@
             animation: corePulse 2s infinite ease-out;
 
         }
+
+
 
         @keyframes corePulse {
 
@@ -458,6 +554,8 @@
 
             color: var(--text-sub);
 
+            flex-shrink: 0;
+
         }
 
 
@@ -522,6 +620,42 @@
 
 
 
+        /* Sidebar Backdrop Overlay on Mobile */
+
+        .sidebar-backdrop-overlay {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background: rgba(6, 7, 19, 0.75);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+
+            z-index: 490;
+
+            opacity: 0;
+
+            transition: opacity 0.35s ease;
+
+        }
+
+
+
+        .sidebar-backdrop-overlay.active {
+
+            display: block;
+
+            opacity: 1;
+
+        }
+
+
+
         /* ==========================================================================
 
            4. MAIN CONTENT SHIPMENT HUB & HIGH-TIER CONTROL HOVER SYSTEM
@@ -540,6 +674,8 @@
 
             z-index: 10;
 
+            min-width: 0;
+
         }
 
 
@@ -557,6 +693,10 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 
             padding-bottom: 35px;
+
+            gap: 25px;
+
+            flex-wrap: wrap;
 
         }
 
@@ -608,6 +748,8 @@
 
             align-items: center;
 
+            justify-content: center;
+
             gap: 12px;
 
             padding: 16px 34px;
@@ -635,6 +777,10 @@
             position: relative;
 
             overflow: hidden;
+
+            text-decoration: none;
+
+            white-space: nowrap;
 
         }
 
@@ -723,6 +869,8 @@
             box-shadow: 0 20px 45px rgba(0,0,0,0.25);
 
             transition: var(--transition-warp);
+
+            min-width: 0;
 
         }
 
@@ -822,6 +970,8 @@
 
             box-shadow: inset 0 2px 8px rgba(0,0,0,0.8);
 
+            flex-shrink: 0;
+
         }
 
 
@@ -882,6 +1032,8 @@
 
             transition: border-color 0.6s var(--ease-quantum), box-shadow 0.6s var(--ease-quantum);
 
+            min-width: 0;
+
         }
 
 
@@ -922,6 +1074,8 @@
 
             text-shadow: 0 0 15px var(--highlight-neon);
 
+            flex-shrink: 0;
+
         }
 
 
@@ -937,6 +1091,8 @@
             margin-bottom: 30px;
 
         }
+
+
 
         .quantum-matrix-row.bifurcated-2 { grid-template-columns: repeat(2, 1fr); }
 
@@ -989,6 +1145,8 @@
 
 
         .quantum-interactive-input-group select { cursor: pointer; }
+
+
 
         .quantum-interactive-input-group textarea { min-height: 130px; resize: vertical; }
 
@@ -1052,35 +1210,59 @@
 
         }
 
-        #mobileMenuBtn{
-    display:none;
-}
 
-@media(max-width:768px){
 
-    #mobileMenuBtn{
-        display:flex;
-        position:fixed;
-        top:15px;
-        left:15px;
-        width:50px;
-        height:50px;
-        z-index:10000;
+        #mobileMenuBtn {
 
-        border:none;
-        border-radius:12px;
+            display: none;
 
-        background:#0D0E22;
-        color:white;
+        }
 
-        justify-content:center;
-        align-items:center;
 
-        font-size:20px;
 
-        box-shadow:0 0 20px rgba(0,0,0,.4);
-    }
-}
+        @media(max-width:768px){
+
+            #mobileMenuBtn {
+
+                display: flex;
+
+                position: fixed;
+
+                top: 15px;
+
+                left: 15px;
+
+                width: 48px;
+
+                height: 48px;
+
+                z-index: 10000;
+
+                border: 1px solid var(--glass-border);
+
+                border-radius: 14px;
+
+                background: rgba(13, 14, 34, 0.95);
+
+                backdrop-filter: blur(15px);
+
+                -webkit-backdrop-filter: blur(15px);
+
+                color: var(--text-master);
+
+                justify-content: center;
+
+                align-items: center;
+
+                font-size: 20px;
+
+                box-shadow: 0 10px 25px rgba(0,0,0,0.5), 0 0 15px rgba(0, 245, 255, 0.2);
+
+                cursor: pointer;
+
+            }
+
+        }
 
 
 
@@ -1166,6 +1348,8 @@
 
         }
 
+
+
         .dropzone-hologram-prompt p { font-size: 0.9rem; font-weight: 600; color: var(--text-sub); }
 
         .dropzone-hologram-prompt span { color: var(--highlight-neon); font-weight: 700; }
@@ -1204,6 +1388,8 @@
 
         }
 
+
+
         .quantum-interactive-input-group select:focus ~ .chevron-node-select {
 
             color: var(--highlight-neon);
@@ -1238,6 +1424,8 @@
 
             overflow: hidden;
 
+            width: 100%;
+
         }
 
 
@@ -1251,6 +1439,10 @@
             align-items: center;
 
             margin-bottom: 30px;
+
+            flex-wrap: wrap;
+
+            gap: 15px;
 
         }
 
@@ -1304,6 +1496,8 @@
 
             box-shadow: inset 0 4px 20px rgba(0,0,0,0.5);
 
+            -webkit-overflow-scrolling: touch;
+
         }
 
 
@@ -1317,6 +1511,8 @@
             text-align: left;
 
             font-size: 0.95rem;
+
+            min-width: 650px;
 
         }
 
@@ -1366,6 +1562,8 @@
 
         .quantum-datatable-core tr:last-child td { border-bottom: none; }
 
+
+
         .quantum-datatable-core tr:hover td {
 
             background: rgba(255, 255, 255, 0.02);
@@ -1395,6 +1593,8 @@
             transition: var(--transition-warp);
 
         }
+
+
 
         .quantum-datatable-core tr:hover .hologram-media-thumbnail {
 
@@ -1480,6 +1680,8 @@
 
         }
 
+
+
         .trigger-action-node.delete:hover {
 
             color: var(--text-master);
@@ -1496,9 +1698,9 @@
 
         .truncated-text-node {
 
-            min-width: 500px;      /* Increase width */
+            min-width: 350px;
 
-            max-width: 700px;      /* Allow much wider content */
+            max-width: 600px;
 
             white-space: normal;
 
@@ -1512,7 +1714,7 @@
 
             font-weight: 500;
 
-                 }
+        }
 
 
 
@@ -1528,263 +1730,429 @@
 
         }
 
+
+
         @media (max-width: 1150px) {
 
-            .telemetry-snapshot-matrix { grid-template-columns: 1fr; gap: 25px; }
+            .telemetry-snapshot-matrix { grid-template-columns: repeat(2, 1fr); gap: 25px; }
 
         }
 
+
+
         /* ==========================================================================
 
-   9. DATALAYER VIEWPORT VERTICAL SCROLL LOCK LIMIT MATRIX
+           9. DATALAYER VIEWPORT VERTICAL SCROLL LOCK LIMIT MATRIX
 
-   ========================================================================== */
+           ========================================================================== */
 
-#index-dataview .viewport-table-matrix-scroll,
-#enquiries-dataview .viewport-table-matrix-scroll,
-#testimonials-dataview .viewport-table-matrix-scroll,
-#portfolio-dataview .viewport-table-matrix-scroll {
+        #index-dataview .viewport-table-matrix-scroll,
 
-    /* Table Header (~61px) + 5 Rows (5 * ~141px for images / ~81px for text)
+        #enquiries-dataview .viewport-table-matrix-scroll,
 
-       Using a definitive max-height constraint creates the ecosystem limit.
+        #testimonials-dataview .viewport-table-matrix-scroll,
 
-    */
+        #portfolio-dataview .viewport-table-matrix-scroll {
 
-    max-height: 480px;
+            max-height: 480px;
 
-    overflow-y: auto;
+            overflow-y: auto;
 
-    position: relative;
+            position: relative;
 
-}
+        }
 
 
 
-/* Ensure the sticky header functionality works seamlessly during active scrolling */
+        #index-dataview .quantum-datatable-core th,
 
-#index-dataview .quantum-datatable-core th,
-#enquiries-dataview .quantum-datatable-core th,
-#testimonials-dataview .quantum-datatable-core th,
-#portfolio-dataview .quantum-datatable-core th {
+        #enquiries-dataview .quantum-datatable-core th,
 
-    position: sticky;
+        #testimonials-dataview .quantum-datatable-core th,
 
-    top: 0;
+        #portfolio-dataview .quantum-datatable-core th {
 
-    z-index: 20;
+            position: sticky;
 
-    box-shadow: 0 4px 10px rgba(6, 7, 19, 0.8);
+            top: 0;
 
-}
+            z-index: 20;
 
-@media(max-width:768px){
+            box-shadow: 0 4px 10px rgba(6, 7, 19, 0.8);
 
-    td,
-    th{
-        white-space:normal;
-    }
+        }
 
-    .row-action-cluster{
-        flex-wrap:wrap;
-    }
-}
 
-/* ==========================================
-   MOBILE RESPONSIVE MASTER SYSTEM
-========================================== */
 
-@media (max-width:1200px){
+        @media(max-width:768px){
 
-    .viewport-dashboard-container{
-        padding:40px;
-    }
+            td,
 
-    .executive-control-header{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:25px;
-    }
+            th{
 
-    .telemetry-meta-cluster h1{
-        font-size:2.5rem;
-    }
-}
+                white-space:normal;
 
-/* TABLETS */
-@media (max-width:992px){
+            }
 
-    .cyber-sidebar-hull{
-        width:260px;
-    }
+            .row-action-cluster{
 
-    .viewport-dashboard-container{
-        margin-left:260px;
-        width:calc(100% - 260px);
-        padding:30px;
-    }
+                flex-wrap:wrap;
 
-    .quantum-form-infrastructure{
-        grid-template-columns:1fr;
-    }
+            }
 
-    .telemetry-snapshot-matrix{
-        grid-template-columns:1fr;
-    }
-}
+        }
 
-/* MOBILE */
-@media (max-width:768px){
 
-    body{
-        flex-direction:column;
-    }
-
-    /* Sidebar */
-
-    .cyber-sidebar-hull{
-        position:fixed;
-        left:-100%;
-        width:280px;
-        transition:0.4s;
-        z-index:9999;
-    }
-
-    .cyber-sidebar-hull.active{
-        left:0;
-    }
-
-    /* Main */
-
-    .viewport-dashboard-container{
-        margin-left:0;
-        width:100%;
-        padding:20px;
-    }
-
-    .executive-control-header{
-        gap:20px;
-    }
-
-    .telemetry-meta-cluster h1{
-        font-size:2rem;
-    }
-
-    .telemetry-meta-cluster p{
-        font-size:.9rem;
-    }
-
-    .btn-quantum-premium{
-        width:100%;
-        justify-content:center;
-    }
-
-    /* Cards */
-
-    .quantum-cosmic-card{
-        padding:25px;
-        border-radius:25px;
-    }
-
-    .executive-table-panel{
-        padding:20px;
-        border-radius:25px;
-    }
-
-    /* Forms */
-
-    .quantum-matrix-row.bifurcated-2{
-        grid-template-columns:1fr;
-    }
-
-    .quantum-interactive-input-group input,
-    .quantum-interactive-input-group textarea,
-    .quantum-interactive-input-group select{
-        font-size:16px;
-    }
-
-    /* Tables */
-
-    .quantum-datatable-core{
-        min-width:1000px;
-    }
-
-    .viewport-table-matrix-scroll{
-        overflow-x:auto;
-        -webkit-overflow-scrolling:touch;
-    }
-
-    .truncated-text-node{
-        min-width:250px;
-        max-width:300px;
-    }
-
-    /* Metrics */
-
-    .kinetic-telemetry-plate{
-        padding:25px;
-    }
-
-    .telemetry-numerical-core h3{
-        font-size:2rem;
-    }
-
-    .quantum-sphere-wrapper{
-        width:55px;
-        height:55px;
-        font-size:1.2rem;
-    }
-
-    /* Header Table */
-
-    .table-panel-header-hub{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
-    }
-}
-
-/* SMALL MOBILE */
-@media (max-width:480px){
-
-    .viewport-dashboard-container{
-        padding:15px;
-    }
-
-    .telemetry-meta-cluster h1{
-        font-size:1.7rem;
-    }
-
-    .telemetry-meta-cluster p{
-        font-size:.85rem;
-    }
-
-    .quantum-cosmic-card{
-        padding:18px;
-    }
-
-    .executive-table-panel{
-        padding:15px;
-    }
-
-    .engine-card-title{
-        font-size:1.2rem;
-    }
-
-    .telemetry-numerical-core h3{
-        font-size:1.7rem;
-    }
-
-    .btn-quantum-premium{
-        padding:14px;
-        font-size:.85rem;
-    }
-
-    .truncated-text-node{
-        min-width:200px;
-        max-width:250px;
-    }
-}
+
+        /* ==========================================
+
+           MOBILE RESPONSIVE MASTER SYSTEM
+
+        ========================================== */
+
+        @media (max-width:1200px){
+
+            .viewport-dashboard-container{
+
+                padding:40px;
+
+            }
+
+            .executive-control-header{
+
+                flex-direction:column;
+
+                align-items:flex-start;
+
+                gap:25px;
+
+            }
+
+            .telemetry-meta-cluster h1{
+
+                font-size:2.5rem;
+
+            }
+
+        }
+
+
+
+        /* TABLETS */
+
+        @media (max-width:992px){
+
+            .cyber-sidebar-hull{
+
+                width:260px;
+
+            }
+
+            .viewport-dashboard-container{
+
+                margin-left:260px;
+
+                width:calc(100% - 260px);
+
+                padding:30px;
+
+            }
+
+            .quantum-form-infrastructure{
+
+                grid-template-columns:1fr;
+
+            }
+
+            .telemetry-snapshot-matrix{
+
+                grid-template-columns:repeat(2, 1fr);
+
+            }
+
+        }
+
+
+
+        /* MOBILE */
+
+        @media (max-width:768px){
+
+            body{
+
+                flex-direction:column;
+
+            }
+
+            /* Sidebar Flyout Drawer */
+
+            .cyber-sidebar-hull{
+
+                position:fixed;
+
+                left:-100%;
+
+                width:280px;
+
+                transition:left 0.4s var(--ease-quantum);
+
+                z-index:9999;
+
+                box-shadow:20px 0 60px rgba(0,0,0,0.8);
+
+            }
+
+            .cyber-sidebar-hull.active{
+
+                left:0;
+
+            }
+
+            /* Main Content Container */
+
+            .viewport-dashboard-container{
+
+                margin-left:0;
+
+                width:100%;
+
+                padding:75px 18px 40px;
+
+            }
+
+            .executive-control-header{
+
+                gap:20px;
+
+                padding-bottom:25px;
+
+                margin-bottom:35px;
+
+            }
+
+            .telemetry-meta-cluster h1{
+
+                font-size:2.1rem;
+
+            }
+
+            .telemetry-meta-cluster p{
+
+                font-size:.9rem;
+
+            }
+
+            .btn-quantum-premium{
+
+                width:100%;
+
+                justify-content:center;
+
+            }
+
+            /* Snapshot Metrics */
+
+            .telemetry-snapshot-matrix{
+
+                grid-template-columns:1fr;
+
+                gap:20px;
+
+                margin-bottom:40px;
+
+            }
+
+            .kinetic-telemetry-plate{
+
+                padding:25px 20px;
+
+                border-radius:24px;
+
+            }
+
+            .telemetry-numerical-core h3{
+
+                font-size:2.2rem;
+
+            }
+
+            .quantum-sphere-wrapper{
+
+                width:55px;
+
+                height:55px;
+
+                font-size:1.2rem;
+
+                border-radius:18px;
+
+            }
+
+            /* Cards */
+
+            .quantum-cosmic-card{
+
+                padding:30px 20px;
+
+                border-radius:28px;
+
+            }
+
+            .executive-table-panel{
+
+                padding:25px 18px;
+
+                border-radius:28px;
+
+                margin-bottom:35px;
+
+            }
+
+            /* Forms */
+
+            .quantum-form-infrastructure{
+
+                gap:30px;
+
+                margin-bottom:40px;
+
+            }
+
+            .quantum-matrix-row{
+
+                gap:20px;
+
+                margin-bottom:20px;
+
+            }
+
+            .quantum-matrix-row.bifurcated-2{
+
+                grid-template-columns:1fr;
+
+                gap:20px;
+
+            }
+
+            .quantum-interactive-input-group input,
+
+            .quantum-interactive-input-group textarea,
+
+            .quantum-interactive-input-group select{
+
+                padding:16px 18px;
+
+                font-size:0.92rem;
+
+            }
+
+            .kinetic-dropzone-engine {
+
+                padding:25px 15px;
+
+            }
+
+            /* Tables */
+
+            .quantum-datatable-core{
+
+                min-width:700px;
+
+            }
+
+            .truncated-text-node{
+
+                min-width:200px;
+
+                max-width:280px;
+
+            }
+
+            .table-panel-header-hub{
+
+                flex-direction:column;
+
+                align-items:flex-start;
+
+                gap:12px;
+
+                margin-bottom:20px;
+
+            }
+
+        }
+
+
+
+        /* SMALL MOBILE */
+
+        @media (max-width:480px){
+
+            .viewport-dashboard-container{
+
+                padding:70px 14px 30px;
+
+            }
+
+            .telemetry-meta-cluster h1{
+
+                font-size:1.75rem;
+
+            }
+
+            .telemetry-meta-cluster p{
+
+                font-size:.82rem;
+
+            }
+
+            .quantum-cosmic-card{
+
+                padding:22px 15px;
+
+                border-radius:22px;
+
+            }
+
+            .executive-table-panel{
+
+                padding:20px 14px;
+
+                border-radius:22px;
+
+            }
+
+            .engine-card-title{
+
+                font-size:1.2rem;
+
+                margin-bottom:25px;
+
+            }
+
+            .telemetry-numerical-core h3{
+
+                font-size:1.8rem;
+
+            }
+
+            .btn-quantum-premium{
+
+                padding:14px 20px;
+
+                font-size:.88rem;
+
+            }
+
+            .truncated-text-node{
+
+                min-width:180px;
+
+                max-width:240px;
+
+            }
+
+        }
 
     </style>
 
@@ -1792,9 +2160,17 @@
 
 <body>
 
-    <button id="mobileMenuBtn">
-    <i class="fa-solid fa-bars"></i>
-</button>
+    <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu">
+
+        <i class="fa-solid fa-bars"></i>
+
+    </button>
+
+
+
+    <!-- Navigation Backdrop for Mobile -->
+
+    <div class="sidebar-backdrop-overlay" id="sidebarBackdrop"></div>
 
 
 
@@ -1808,7 +2184,7 @@
 
     <!-- Kinetic Sidebar Deployment Core Hull -->
 
-    <aside class="cyber-sidebar-hull">
+    <aside class="cyber-sidebar-hull" id="cyberSidebar">
 
         <div class="sidebar-brand-engine">
 
@@ -1860,17 +2236,20 @@
 
             </div>
 
-            <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                <a href="/" target="_blank"> <button class="btn-quantum-premium">
+            <div style="display:flex; gap:12px; flex-wrap:wrap; width:100%; max-width:max-content;">
+
+                <a href="/" target="_blank" style="flex:1;"> <button class="btn-quantum-premium" style="width:100%;">
 
                     Launch Live Site Interface <i class="fa-solid fa-arrow-up-right-from-square"></i>
 
                 </button></a>
-                <a href="{% url 'adminlogout' %}"> <button class="btn-quantum-premium" style="background:linear-gradient(135deg, #ef4444, #f97316);">
+
+                <a href="{% url 'adminlogout' %}" style="flex:1;"> <button class="btn-quantum-premium" style="background:linear-gradient(135deg, #ef4444, #f97316); width:100%;">
 
                     Sign Out <i class="fa-solid fa-right-from-bracket"></i>
 
                 </button></a>
+
             </div>
 
         </header>
@@ -1942,8 +2321,6 @@
 
 
         <section class="quantum-form-infrastructure" id="upload-testimonials">
-
-
 
             <div class="quantum-cosmic-card dynamic-spatial-tilt-card">
 
@@ -2055,9 +2432,9 @@
 
                         <div class="quantum-interactive-input-group">
 
-                            <input type="text" id="idx_project_tag" name="tag" required>
+                            <input type="text" id="idx_project_tag_field" name="tag" required>
 
-                            <label for="idx_project_tag">Project Tag</label>
+                            <label for="idx_project_tag_field">Project Tag</label>
 
                         </div>
 
@@ -2141,15 +2518,13 @@
 
                         <div class="quantum-interactive-input-group">
 
-                            <input type="text" id="port_project_title" name="ptag" required>
+                            <input type="text" id="port_project_tag_title" name="ptag" required>
 
-                            <label for="port_project_title">Project Tag</label>
+                            <label for="port_project_tag_title">Project Tag</label>
 
                         </div>
 
                     </div>
-
-
 
                     <div class="quantum-matrix-row">
 
@@ -2169,25 +2544,17 @@
 
                     </div>
 
-
-
                     <div class="quantum-matrix-row">
 
                         <div class="quantum-interactive-input-group">
 
-                            <input type="url" id="idx_project_link" name="plink" required>
+                            <input type="url" id="idx_project_portfolio_link" name="plink" required>
 
-                            <label for="port_project_title">Project live URL</label>
+                            <label for="idx_project_portfolio_link">Project live URL</label>
 
                         </div>
 
                     </div>
-
-
-
-                    </div>
-
-               
 
                     <button type="submit" name="portfolio_submit" class="btn-quantum-premium" style="width: 100%; justify-content: center; margin-top: 15px;">
 
@@ -2245,7 +2612,7 @@
 
                         <tr>
 
-                            <td>{% if homeprojects.project_photo %}<img src="{{ homeprojects.project_photo.url }}" alt="{{ homeprojects.project_name }}" style="width: 100px; height: 100px; object-fit: cover;">{% else %}<span style="color:#aaa;">No image</span>{% endif %}</td>
+                            <td>{% if homeprojects.project_photo %}<img src="{{ homeprojects.project_photo.url }}" alt="{{ homeprojects.project_name }}" class="hologram-media-thumbnail" style="width: 80px; height: 60px; object-fit: cover;">{% else %}<span style="color:#aaa;">No image</span>{% endif %}</td>
 
                             <td>{{homeprojects.project_Title}}</td>
 
@@ -2255,7 +2622,7 @@
 
                             <td><span class="category-matrix-badge">{{homeprojects.project_tag}}</span></td>
 
-                            <td>{{homeprojects.project_link}}</td>
+                            <td><div class="truncated-text-node">{{homeprojects.project_link}}</div></td>
 
                             <td style="text-align: center;">
 
@@ -2267,7 +2634,7 @@
 
                                     <input type="hidden" name="project_id" value="{{ homeprojects.id }}">
 
-                                    <button type="submit" class="trigger-action-node delete" style="border:none; background:none; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button type="submit" class="trigger-action-node delete" style="border:none; cursor:pointer;" aria-label="Delete Project"><i class="fa-solid fa-trash-can"></i></button>
 
                                 </form>
 
@@ -2275,17 +2642,13 @@
 
                         </tr>
 
-
-
                         {% empty %}
 
                         <tr>
 
-                             <td colspan="6" style="text-align:center; color:#aaa;">No Projects Added in Home Page</td>
+                             <td colspan="7" style="text-align:center; color:#aaa; padding: 30px;">No Projects Added in Home Page</td>
 
                         </tr>
-
-
 
                         {% endfor %}
 
@@ -2329,9 +2692,7 @@
 
                             <th>Control Pannel</th>
 
-                        </tr>'
-
-                        '
+                        </tr>
 
                     </thead>
 
@@ -2339,7 +2700,7 @@
 
                         <tr>
 
-                            <td>{% if portfolioprojects.portfolio_image %}<img src="{{ portfolioprojects.portfolio_image.url }}" alt="{{ portfolioprojects.portfolio_Title }}" style="width: 100px; height: 100px; object-fit: cover;">{% else %}<span style="color:#aaa;">No image</span>{% endif %}</td>
+                            <td>{% if portfolioprojects.portfolio_image %}<img src="{{ portfolioprojects.portfolio_image.url }}" alt="{{ portfolioprojects.portfolio_Title }}" class="hologram-media-thumbnail" style="width: 80px; height: 60px; object-fit: cover;">{% else %}<span style="color:#aaa;">No image</span>{% endif %}</td>
 
                             <td>{{portfolioprojects.portfolio_Title}}</td>
 
@@ -2359,7 +2720,7 @@
 
                                     <input type="hidden" name="project_id" value="{{ portfolioprojects.id }}">
 
-                                    <button type="submit" class="trigger-action-node delete" style="border:none; background:none; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button type="submit" class="trigger-action-node delete" style="border:none; cursor:pointer;" aria-label="Delete Portfolio Project"><i class="fa-solid fa-trash-can"></i></button>
 
                                 </form>
 
@@ -2367,17 +2728,13 @@
 
                         </tr>
 
-
-
                         {% empty %}
 
                         <tr>
 
-                             <td colspan="6" style="text-align:center; color:#aaa;">No Projects Added in Portfolio Page</td>
+                             <td colspan="6" style="text-align:center; color:#aaa; padding: 30px;">No Projects Added in Portfolio Page</td>
 
                         </tr>
-
-
 
                         {% endfor %}
 
@@ -2427,7 +2784,7 @@
 
                         <tr>
 
-                            <td><div class="client-avatar-mock" style="width: 40px; height: 40px; font-size: 0.95rem;">{{ testimonial.client_initial }}</div></td>
+                            <td><div class="client-avatar-mock" style="width: 40px; height: 40px; font-size: 0.95rem; background: var(--accent-quantum); color: var(--text-master); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700;">{{ testimonial.client_initial }}</div></td>
 
                             <td>{{ testimonial.client_name }}</td>
 
@@ -2445,7 +2802,7 @@
 
                                     <input type="hidden" name="testimonial_id" value="{{ testimonial.id }}">
 
-                                    <button type="submit" class="trigger-action-node delete" style="border:none; background:none; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button type="submit" class="trigger-action-node delete" style="border:none; cursor:pointer;" aria-label="Delete Testimonial"><i class="fa-solid fa-trash-can"></i></button>
 
                                 </form>
 
@@ -2453,17 +2810,13 @@
 
                         </tr>
 
-
-
                         {% empty %}
 
                         <tr>
 
-                             <td colspan="5" style="text-align:center; color:#aaa;">No Testimonials Added</td>
+                             <td colspan="5" style="text-align:center; color:#aaa; padding: 30px;">No Testimonials Added</td>
 
                         </tr>
-
-
 
                         {% endfor %}
 
@@ -2515,7 +2868,7 @@
 
                             <td>{{contactforms.username}}</td>
 
-                            <td style="color:var(--highlight-neon);">{{contactforms.mobile_number}}</td>
+                            <td style="color:var(--highlight-neon); font-family: var(--font-display);">{{contactforms.mobile_number}}</td>
 
                             <td>{{contactforms.email}}</td>
 
@@ -2531,7 +2884,7 @@
 
                                     <input type="hidden" name="contact_id" value="{{ contactforms.id }}">
 
-                                    <button type="submit" class="trigger-action-node delete" style="border:none; background:none; cursor:pointer;"><i class="fa-solid fa-trash-can"></i></button>
+                                    <button type="submit" class="trigger-action-node delete" style="border:none; cursor:pointer;" aria-label="Delete Enquiry"><i class="fa-solid fa-trash-can"></i></button>
 
                                 </form>
 
@@ -2539,17 +2892,13 @@
 
                         </tr>
 
-
-
                         {% empty %}
 
                         <tr>
 
-                             <td colspan="6" style="text-align:center; color:#aaa;">No Contact Messages Received</td>
+                             <td colspan="5" style="text-align:center; color:#aaa; padding: 30px;">No Contact Messages Received</td>
 
                         </tr>
-
-
 
                         {% endfor %}
 
@@ -2560,8 +2909,6 @@
             </div>
 
         </section>
-
-
 
     </main>
 
@@ -2731,53 +3078,57 @@
 
             const spatialTiltForms = document.querySelectorAll('.dynamic-spatial-tilt-card');
 
-            spatialTiltForms.forEach(formHullNode => {
+            if (window.innerWidth > 992) {
 
-                window.addEventListener('mousemove', function(mouseEventData) {
+                spatialTiltForms.forEach(formHullNode => {
 
-                    const structuralBoundingBox = formHullNode.getBoundingClientRect();
+                    window.addEventListener('mousemove', function(mouseEventData) {
 
-                    const centralVectorX = structuralBoundingBox.left + structuralBoundingBox.width / 2;
+                        const structuralBoundingBox = formHullNode.getBoundingClientRect();
 
-                    const centralVectorY = structuralBoundingBox.top + structuralBoundingBox.height / 2;
+                        const centralVectorX = structuralBoundingBox.left + structuralBoundingBox.width / 2;
+
+                        const centralVectorY = structuralBoundingBox.top + structuralBoundingBox.height / 2;
+
+                       
+
+                        const computationalRotateX = (centralVectorY - mouseEventData.clientY) / 45;
+
+                        const computationalRotateY = (mouseEventData.clientX - centralVectorX) / 45;
+
+                       
+
+                        const definitiveLimitX = Math.max(-10, Math.min(10, computationalRotateX));
+
+                        const definitiveLimitY = Math.max(-10, Math.min(10, computationalRotateY));
+
+                       
+
+                        if (mouseEventData.clientX > structuralBoundingBox.left - 60 && mouseEventData.clientX < structuralBoundingBox.right + 60 &&
+
+                            mouseEventData.clientY > structuralBoundingBox.top - 60 && mouseEventData.clientY < structuralBoundingBox.bottom + 60) {
+
+                            formHullNode.style.transform = `rotateX(${definitiveLimitX}deg) rotateY(${definitiveLimitY}deg) translateZ(15px)`;
+
+                            formHullNode.style.background = "rgba(13, 14, 34, 0.85)";
+
+                        }
+
+                    });
 
                    
 
-                    const computationalRotateX = (centralVectorY - mouseEventData.clientY) / 45;
+                    formHullNode.addEventListener('mouseleave', function() {
 
-                    const computationalRotateY = (mouseEventData.clientX - centralVectorX) / 45;
+                        formHullNode.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(0px)`;
 
-                   
+                        formHullNode.style.background = "var(--glass-hull)";
 
-                    const definitiveLimitX = Math.max(-10, Math.min(10, computationalRotateX));
-
-                    const definitiveLimitY = Math.max(-10, Math.min(10, computationalRotateY));
-
-                   
-
-                    if (mouseEventData.clientX > structuralBoundingBox.left - 60 && mouseEventData.clientX < structuralBoundingBox.right + 60 &&
-
-                        mouseEventData.clientY > structuralBoundingBox.top - 60 && mouseEventData.clientY < structuralBoundingBox.bottom + 60) {
-
-                        formHullNode.style.transform = `rotateX(${definitiveLimitX}deg) rotateY(${definitiveLimitY}deg) translateZ(15px)`;
-
-                        formHullNode.style.background = "rgba(13, 14, 34, 0.85)";
-
-                    }
+                    });
 
                 });
 
-               
-
-                formHullNode.addEventListener('mouseleave', function() {
-
-                    formHullNode.style.transform = `rotateX(0deg) rotateY(0deg) translateZ(0px)`;
-
-                    formHullNode.style.background = "var(--glass-hull)";
-
-                });
-
-            });
+            }
 
 
 
@@ -2813,29 +3164,83 @@
 
         });
 
+        
+
+        // Mobile Sidebar Toggle and Backdrop Handling
+
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const sidebar = document.querySelector('.cyber-sidebar-hull');
 
-mobileMenuBtn.addEventListener('click',()=>{
+        const sidebar = document.getElementById('cyberSidebar');
 
-    sidebar.classList.toggle('active');
+        const sidebarBackdrop = document.getElementById('sidebarBackdrop');
 
-});
 
-document.querySelectorAll('.kinetic-menu-trigger')
-.forEach(link=>{
 
-    link.addEventListener('click',()=>{
+        function toggleSidebar() {
 
-        if(window.innerWidth <= 768){
+            if (sidebar) {
 
-            sidebar.classList.remove('active');
+                const isActive = sidebar.classList.toggle('active');
+
+                if (sidebarBackdrop) {
+
+                    sidebarBackdrop.classList.toggle('active', isActive);
+
+                }
+
+                const menuIcon = mobileMenuBtn ? mobileMenuBtn.querySelector('i') : null;
+
+                if (menuIcon) {
+
+                    if (isActive) {
+
+                        menuIcon.classList.replace('fa-bars', 'fa-xmark');
+
+                        document.body.style.overflow = 'hidden';
+
+                    } else {
+
+                        menuIcon.classList.replace('fa-xmark', 'fa-bars');
+
+                        document.body.style.overflow = '';
+
+                    }
+
+                }
+
+            }
 
         }
 
-    });
 
-});
+
+        if (mobileMenuBtn) {
+
+            mobileMenuBtn.addEventListener('click', toggleSidebar);
+
+        }
+
+        if (sidebarBackdrop) {
+
+            sidebarBackdrop.addEventListener('click', toggleSidebar);
+
+        }
+
+
+
+        document.querySelectorAll('.kinetic-menu-trigger').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                if (window.innerWidth <= 768 && sidebar && sidebar.classList.contains('active')) {
+
+                    toggleSidebar();
+
+                }
+
+            });
+
+        });
 
     </script>
 

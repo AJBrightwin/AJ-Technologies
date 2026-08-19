@@ -1,568 +1,1279 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+
     <title>Enterprise Admin Gateway | AJ Technologies</title>
+
     <meta name="robots" content="noindex, nofollow">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
+
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+
+        /* ==========================================================================
+           1. ROOT SYSTEM VARIABLES
+           ========================================================================== */
+
         :root {
+
             --bg: #02040a;
+
             --panel: rgba(6, 11, 25, 0.45);
+
             --panel-border: rgba(255, 255, 255, 0.05);
+
             --text-primary: #ffffff;
+
             --text-secondary: #94a3b8;
+
             --text-muted: #64748b;
+
             --primary: #38bdf8;
+
             --primary-rgb: 56, 189, 248;
+
             --secondary: #6366f1;
+
             --accent-gradient: linear-gradient(135deg, #2563eb 0%, #38bdf8 50%, #4f46e5 100%);
+
             --danger: #f43f5e;
+
             --input-bg: rgba(2, 4, 10, 0.6);
+
         }
+
+
+
+        /* ==========================================================================
+           2. BASE RESETS & VIEWPORT INITIALIZATION
+           ========================================================================== */
 
         * {
+
             box-sizing: border-box;
+
             margin: 0;
+
             padding: 0;
+
+            -webkit-tap-highlight-color: transparent;
+
         }
+
+
+
+        html {
+
+            scroll-behavior: smooth;
+
+            overflow-x: hidden;
+
+            width: 100%;
+
+            font-size: 16px;
+
+        }
+
+
 
         body {
+
             min-height: 100vh;
+
             display: grid;
+
             place-items: center;
+
             font-family: 'Plus Jakarta Sans', sans-serif;
+
             background-color: var(--bg);
+
             color: var(--text-primary);
+
             padding: 24px;
+
             overflow-x: hidden;
+
             position: relative;
+
             perspective: 1000px;
+
+            width: 100%;
+
         }
 
-        /* --- HIGH-PREMIUM BACKGROUND LAYER --- */
+
+
+        /* ==========================================================================
+           3. BACKGROUND ATMOSPHERICS
+           ========================================================================== */
+
         .bg-grid-mesh {
+
             position: absolute;
+
             inset: 0;
+
             background-image: 
+
                 linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+
                 linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+
             background-size: 40px 40px;
+
             background-position: center;
+
             mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+
             -webkit-mask-image: radial-gradient(circle at 50% 50%, black, transparent 80%);
+
             z-index: -2;
+
+            pointer-events: none;
+
         }
+
+
 
         .ambient-aurora {
+
             position: absolute;
+
             width: 800px;
+
             height: 800px;
+
             border-radius: 50%;
+
             background: radial-gradient(circle, rgba(56, 189, 248, 0.12) 0%, rgba(99, 102, 241, 0.06) 50%, transparent 100%);
+
             filter: blur(80px);
+
             z-index: -1;
+
             animation: auroraOrbit 25s infinite alternate linear;
+
             pointer-events: none;
+
         }
+
+
 
         @keyframes auroraOrbit {
+
             0% { transform: translate(-20%, -20%) rotate(0deg) scale(1); }
+
             50% { transform: translate(20%, 15%) rotate(180deg) scale(1.2); }
+
             100% { transform: translate(-10%, 20%) rotate(360deg) scale(0.9); }
+
         }
 
-        /* --- MAIN ARCHITECTURAL INTERFACE CONTAINER --- */
+
+
+        /* ==========================================================================
+           4. MAIN CONTAINER STRUCTURE
+           ========================================================================== */
+
         .gateway-container {
+
             position: relative;
+
             width: min(100%, 1100px);
+
             background: var(--panel);
+
             border: 1px solid var(--panel-border);
+
             border-radius: 36px;
+
             backdrop-filter: blur(40px);
+
             -webkit-backdrop-filter: blur(40px);
+
             box-shadow: 
+
                 0 0 0 1px rgba(255, 255, 255, 0.02) inset,
+
                 0 30px 100px rgba(0, 0, 0, 0.8),
+
                 0 0 80px rgba(56, 189, 248, 0.03);
+
             display: grid;
+
             grid-template-columns: 1.2fr 1fr;
+
             overflow: hidden;
+
             transform-style: preserve-3d;
+
             animation: containerIntro 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+
         }
+
+
 
         @keyframes containerIntro {
+
             from { opacity: 0; transform: translateY(40px) scale(0.97) rotateX(4deg); }
+
             to { opacity: 1; transform: translateY(0) scale(1) rotateX(0deg); }
+
         }
 
-        /* --- BRAND PANEL (LEFT) --- */
+
+
+        /* ==========================================================================
+           5. BRAND SHOWCASE PANEL (LEFT)
+           ========================================================================== */
+
         .brand-showcase {
+
             background: linear-gradient(145deg, rgba(10, 17, 36, 0.9) 0%, rgba(3, 7, 18, 0.95) 100%);
+
             padding: 64px;
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
+
             position: relative;
+
             overflow: hidden;
+
         }
+
+
 
         .brand-showcase::after {
+
             content: '';
+
             position: absolute;
+
             inset: 0;
+
             background: radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08), transparent 50%);
+
             pointer-events: none;
+
         }
 
+
+
         .decorative-ring {
+
             position: absolute;
+
             top: -100px;
+
             right: -100px;
+
             width: 300px;
+
             height: 300px;
+
             border: 1px dashed rgba(255, 255, 255, 0.05);
+
             border-radius: 50%;
+
             animation: slowRotate 40s linear infinite;
+
+            pointer-events: none;
+
         }
+
+
 
         @keyframes slowRotate { to { transform: rotate(360deg); } }
 
+
+
         .brand-header-group {
+
             display: flex;
+
             align-items: center;
+
             gap: 12px;
+
             animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+
         }
+
+
 
         .brand-logo-node {
+
             width: 32px;
+
             height: 32px;
+
             background: var(--accent-gradient);
+
             border-radius: 10px;
+
             position: relative;
+
             display: grid;
+
             place-items: center;
+
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+
+            flex-shrink: 0;
+
         }
+
+
 
         .brand-logo-node::before {
+
             content: '';
+
             width: 12px;
+
             height: 12px;
+
             background: var(--bg);
+
             border-radius: 4px;
+
         }
+
+
 
         .brand-title-text {
+
             font-size: 1.1rem;
+
             font-weight: 800;
+
             letter-spacing: 1px;
+
             text-transform: uppercase;
+
             background: linear-gradient(to right, #ffffff, var(--text-secondary));
+
             -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
+
         }
+
+
+
+        .hero-messaging {
+
+            margin: 40px 0;
+
+        }
+
+
 
         .hero-messaging h2 {
+
             font-size: 2.8rem;
+
             font-weight: 800;
+
             line-height: 1.15;
+
             letter-spacing: -1.5px;
+
             margin-bottom: 20px;
+
             background: linear-gradient(to bottom right, #ffffff 30%, #94a3b8 100%);
+
             -webkit-background-clip: text;
+
             -webkit-text-fill-color: transparent;
+
             animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.4s both;
+
+            overflow-wrap: break-word;
+
+            word-wrap: break-word;
+
         }
+
+
 
         .hero-messaging p {
+
             color: var(--text-secondary);
+
             font-size: 1.05rem;
+
             line-height: 1.65;
+
             font-weight: 400;
+
             max-width: 420px;
+
             animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+
+            overflow-wrap: break-word;
+
+            word-wrap: break-word;
+
         }
+
+
 
         .system-status-indicator {
+
             display: flex;
+
             align-items: center;
+
             gap: 8px;
+
             font-size: 0.82rem;
+
             color: var(--text-muted);
+
             letter-spacing: 0.5px;
+
             text-transform: uppercase;
+
             animation: slideFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.6s both;
+
         }
+
+
 
         .status-dot {
+
             width: 6px;
+
             height: 6px;
+
             background: #10b981;
+
             border-radius: 50%;
+
             box-shadow: 0 0 10px #10b981;
+
             animation: pulseGlow 2s infinite;
+
+            flex-shrink: 0;
+
         }
+
+
 
         @keyframes pulseGlow {
+
             0%, 100% { opacity: 0.5; }
+
             50% { opacity: 1; transform: scale(1.2); }
+
         }
 
-        /* --- FORM PANEL (RIGHT) --- */
-        .form-interactive-area {
-            padding: 64px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-        }
 
-        .input-group-container {
-            margin-bottom: 28px;
-            position: relative;
-        }
-
-        /* Pure CSS Floating Labels Layout Setup */
-        .input-field-wrapper {
-            position: relative;
-            width: 100%;
-        }
-
-        .input-field-wrapper input {
-            width: 100%;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            background: var(--input-bg);
-            color: var(--text-primary);
-            border-radius: 16px;
-            padding: 20px 24px 10px 24px; /* Space on top allocated for label */
-            font-size: 1.05rem;
-            font-family: inherit;
-            outline: none;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .input-field-wrapper label {
-            position: absolute;
-            left: 24px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 1rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            pointer-events: none;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* Active/Focus Floating Label Animation Logic */
-        .input-field-wrapper input:focus ~ label,
-        .input-field-wrapper input:not(:placeholder-shown) ~ label {
-            top: 14px;
-            font-size: 0.78rem;
-            font-weight: 700;
-            color: var(--primary);
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        .input-field-wrapper input:focus {
-            background: #040814;
-            border-color: rgba(56, 189, 248, 0.4);
-            box-shadow: 
-                0 15px 30px -10px rgba(0, 0, 0, 0.5),
-                0 0 0 3px rgba(56, 189, 248, 0.05);
-        }
-
-        /* Glowing Dynamic Tracking Border Underline Accent */
-        .input-glow-track {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
-            background: var(--accent-gradient);
-            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-radius: 2px;
-        }
-
-        .input-field-wrapper input:focus ~ .input-glow-track {
-            width: calc(100% - 32px);
-        }
-
-        /* --- PREMIUM AUTHENTICATION BUTTON --- */
-        .submit-gateway-btn {
-            width: 100%;
-            border: none;
-            border-radius: 16px;
-            padding: 18px 32px;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #ffffff;
-            background: var(--accent-gradient);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 6px 24px rgba(37, 99, 235, 0.25);
-            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            letter-spacing: 0.5px;
-        }
-
-        .submit-gateway-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 
-                0 20px 40px -10px rgba(56, 189, 248, 0.4),
-                0 0 30px rgba(99, 102, 241, 0.2);
-        }
-
-        .submit-gateway-btn:active {
-            transform: translateY(-1px);
-        }
-
-        /* Shimmer Sweep Animation */
-        .submit-gateway-btn::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -150%; width: 150%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
-            transform: skewX(-25deg);
-        }
-
-        .submit-gateway-btn:hover::before {
-            left: 150%;
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        /* --- EXTREME ERROR MICRO-ANIMATIONS --- */
-        .error-box {
-            margin-top: 24px;
-            padding: 16px 20px;
-            border-radius: 16px;
-            background: rgba(244, 63, 94, 0.06);
-            border: 1px solid rgba(244, 63, 94, 0.2);
-            color: #fda4af;
-            font-size: 0.92rem;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            line-height: 1.5;
-            animation: structuralShake 0.5s cubic-bezier(.36,.07,.19,.97) both;
-        }
-
-        @keyframes structuralShake {
-            10%, 90% { transform: translate3d(-1px, 0, 0); }
-            20%, 80% { transform: translate3d(2px, 0, 0); }
-            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
-            40%, 60% { transform: translate3d(4px, 0, 0); }
-        }
-
-        .terminal-note {
-            margin-top: 32px;
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            text-align: center;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
-        @keyframes slideFadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
 
         /* ==========================================================================
-           RESPONSIVE GRID SCALING MATRIX (Fluid adaptation across all displays)
+           6. INTERACTIVE FORM PANEL (RIGHT)
            ========================================================================== */
-        
-        /* Ultra-wide Monitors & Large Screens (Default Enhanced Layout) */
-        @media (min-width: 1440px) {
-            .gateway-container {
-                width: min(100%, 1200px);
-            }
-            .brand-showcase, .form-interactive-area {
-                padding: 80px;
-            }
+
+        .form-interactive-area {
+
+            padding: 64px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            position: relative;
+
         }
+
+
+
+        .input-group-container {
+
+            margin-bottom: 28px;
+
+            position: relative;
+
+            width: 100%;
+
+        }
+
+
+
+        .input-field-wrapper {
+
+            position: relative;
+
+            width: 100%;
+
+        }
+
+
+
+        .input-field-wrapper input {
+
+            width: 100%;
+
+            border: 1px solid rgba(255, 255, 255, 0.06);
+
+            background: var(--input-bg);
+
+            color: var(--text-primary);
+
+            border-radius: 16px;
+
+            padding: 20px 24px 10px 24px;
+
+            font-size: 1.05rem;
+
+            font-family: inherit;
+
+            outline: none;
+
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+        }
+
+
+
+        .input-field-wrapper label {
+
+            position: absolute;
+
+            left: 24px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            font-size: 1rem;
+
+            font-weight: 500;
+
+            color: var(--text-secondary);
+
+            pointer-events: none;
+
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+
+        }
+
+
+
+        .input-field-wrapper input:focus ~ label,
+
+        .input-field-wrapper input:not(:placeholder-shown) ~ label {
+
+            top: 14px;
+
+            font-size: 0.78rem;
+
+            font-weight: 700;
+
+            color: var(--primary);
+
+            letter-spacing: 0.5px;
+
+            text-transform: uppercase;
+
+        }
+
+
+
+        .input-field-wrapper input:focus {
+
+            background: #040814;
+
+            border-color: rgba(56, 189, 248, 0.4);
+
+            box-shadow: 
+
+                0 15px 30px -10px rgba(0, 0, 0, 0.5),
+
+                0 0 0 3px rgba(56, 189, 248, 0.05);
+
+        }
+
+
+
+        .input-glow-track {
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 0;
+
+            height: 2px;
+
+            background: var(--accent-gradient);
+
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+            border-radius: 2px;
+
+        }
+
+
+
+        .input-field-wrapper input:focus ~ .input-glow-track {
+
+            width: calc(100% - 32px);
+
+        }
+
+
+
+        .submit-gateway-btn {
+
+            width: 100%;
+
+            border: none;
+
+            border-radius: 16px;
+
+            padding: 18px 32px;
+
+            font-size: 1.05rem;
+
+            font-weight: 700;
+
+            color: #ffffff;
+
+            background: var(--accent-gradient);
+
+            cursor: pointer;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow: 0 6px 24px rgba(37, 99, 235, 0.25);
+
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+            letter-spacing: 0.5px;
+
+            display: inline-flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+        }
+
+
+
+        .submit-gateway-btn:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow: 
+
+                0 20px 40px -10px rgba(56, 189, 248, 0.4),
+
+                0 0 30px rgba(99, 102, 241, 0.2);
+
+        }
+
+
+
+        .submit-gateway-btn:active {
+
+            transform: translateY(-1px);
+
+        }
+
+
+
+        .submit-gateway-btn::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0; left: -150%; width: 150%; height: 100%;
+
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+
+            transform: skewX(-25deg);
+
+        }
+
+
+
+        .submit-gateway-btn:hover::before {
+
+            left: 150%;
+
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+        }
+
+
+
+        .error-box {
+
+            margin-top: 24px;
+
+            padding: 16px 20px;
+
+            border-radius: 16px;
+
+            background: rgba(244, 63, 94, 0.06);
+
+            border: 1px solid rgba(244, 63, 94, 0.2);
+
+            color: #fda4af;
+
+            font-size: 0.92rem;
+
+            font-weight: 500;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            line-height: 1.5;
+
+            animation: structuralShake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+
+        }
+
+
+
+        @keyframes structuralShake {
+
+            10%, 90% { transform: translate3d(-1px, 0, 0); }
+
+            20%, 80% { transform: translate3d(2px, 0, 0); }
+
+            30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+
+            40%, 60% { transform: translate3d(4px, 0, 0); }
+
+        }
+
+
+
+        .terminal-note {
+
+            margin-top: 32px;
+
+            font-size: 0.82rem;
+
+            color: var(--text-muted);
+
+            text-align: center;
+
+            line-height: 1.6;
+
+            font-weight: 400;
+
+        }
+
+
+
+        @keyframes slideFadeIn {
+
+            from { opacity: 0; transform: translateY(15px); }
+
+            to { opacity: 1; transform: translateY(0); }
+
+        }
+
+
+
+        /* ==========================================================================
+           7. ADAPTIVE RESPONSIVE MATRIX LAYER BREAKPOINTS
+           ========================================================================== */
+
+        /* Large Displays */
+
+        @media (min-width: 1440px) {
+
+            .gateway-container {
+
+                width: min(100%, 1200px);
+
+            }
+
+            .brand-showcase, .form-interactive-area {
+
+                padding: 80px;
+
+            }
+
+        }
+
+
 
         /* Tablets & Small Laptops */
+
         @media (max-width: 1024px) {
+
             .gateway-container {
+
                 width: min(100%, 900px);
+
                 grid-template-columns: 1fr 1.1fr;
+
             }
+
             .brand-showcase, .form-interactive-area {
+
                 padding: 48px;
+
             }
+
             .hero-messaging h2 {
+
                 font-size: 2.3rem;
+
             }
+
         }
 
-        /* Medium Tablets / Landscapes */
+
+
+        /* Medium Tablets / Portrait Viewports */
+
         @media (max-width: 880px) {
+
             body {
-                padding: 30px;
+
+                padding: 24px 16px;
+
             }
+
             .gateway-container {
+
                 grid-template-columns: 1fr;
-                width: min(100%, 540px);
+
+                width: min(100%, 560px);
+
                 border-radius: 28px;
+
             }
+
             .brand-showcase {
-                padding: 48px 48px 24px 48px;
+
+                padding: 48px 36px 28px 36px;
+
                 background: linear-gradient(180deg, rgba(10, 17, 36, 0.95) 0%, rgba(3, 7, 18, 0.98) 100%);
+
             }
-            .brand-showcase::before { display: none; }
+
+            .decorative-ring { display: none; }
+
+            .hero-messaging {
+
+                margin: 24px 0 16px 0;
+
+            }
+
             .hero-messaging h2 {
+
                 font-size: 2rem;
-                margin-top: 32px;
+
                 margin-bottom: 12px;
+
             }
+
             .system-status-indicator {
-                display: none; /* Strip visual fat for clean tablet viewport */
+
+                display: none;
+
             }
+
             .form-interactive-area {
-                padding: 24px 48px 48px 48px;
+
+                padding: 24px 36px 48px 36px;
+
             }
+
         }
 
-        /* Small Screen Mobile Devices */
+
+
+        /* Small Smartphones & Mobile */
+
         @media (max-width: 480px) {
+
             body {
-                padding: 16px;
+
+                padding: 12px;
+
             }
+
             .gateway-container {
+
                 border-radius: 24px;
+
             }
+
             .brand-showcase {
-                padding: 36px 24px 16px 24px;
+
+                padding: 32px 20px 16px 20px;
+
             }
+
+            .hero-messaging {
+
+                margin: 18px 0 10px 0;
+
+            }
+
             .hero-messaging h2 {
+
                 font-size: 1.65rem;
-                margin-top: 24px;
+
+                letter-spacing: -0.5px;
+
             }
+
             .hero-messaging p {
-                font-size: 0.95rem;
+
+                font-size: 0.92rem;
+
+                line-height: 1.55;
+
             }
+
             .form-interactive-area {
-                padding: 16px 24px 36px 24px;
+
+                padding: 16px 20px 32px 20px;
+
             }
+
+            .input-group-container {
+
+                margin-bottom: 22px;
+
+            }
+
             .input-field-wrapper input {
-                padding: 22px 18px 8px 18px;
-                font-size: 1rem;
+
+                padding: 20px 18px 8px 18px;
+
+                font-size: 0.95rem;
+
+                border-radius: 14px;
+
             }
+
             .input-field-wrapper label {
+
                 left: 18px;
+
+                font-size: 0.92rem;
+
             }
+
             .input-field-wrapper input:focus ~ label,
+
             .input-field-wrapper input:not(:placeholder-shown) ~ label {
+
                 top: 12px;
+
                 font-size: 0.72rem;
+
             }
+
             .submit-gateway-btn {
-                padding: 16px 24px;
-                font-size: 1rem;
+
+                padding: 16px 20px;
+
+                font-size: 0.95rem;
+
+                border-radius: 14px;
+
             }
+
+            .error-box {
+
+                padding: 14px 16px;
+
+                font-size: 0.85rem;
+
+            }
+
+            .terminal-note {
+
+                margin-top: 24px;
+
+                font-size: 0.75rem;
+
+            }
+
         }
+
+
+
+        /* Micro Screens (360px and down) */
+
+        @media (max-width: 360px) {
+
+            body {
+
+                padding: 8px;
+
+            }
+
+            .brand-showcase {
+
+                padding: 24px 16px 12px 16px;
+
+            }
+
+            .hero-messaging h2 {
+
+                font-size: 1.45rem;
+
+            }
+
+            .form-interactive-area {
+
+                padding: 12px 16px 24px 16px;
+
+            }
+
+            .input-field-wrapper input {
+
+                padding: 18px 14px 6px 14px;
+
+                font-size: 0.9rem;
+
+            }
+
+            .input-field-wrapper label {
+
+                left: 14px;
+
+                font-size: 0.85rem;
+
+            }
+
+        }
+
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *, *::before, *::after {
+
+                animation: none !important;
+
+                transition: none !important;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 <body>
 
     <!-- Ambient Architecture Background Atoms -->
+
     <div class="bg-grid-mesh"></div>
+
     <div class="ambient-aurora"></div>
 
+
+
     <!-- UI Core Component Shell -->
+
     <main class="gateway-container" id="interactiveCard">
+
         
+
         <!-- Left Showcase Strategy Section -->
+
         <section class="brand-showcase">
+
             <div class="decorative-ring"></div>
+
             
+
             <div class="brand-header-group">
+
                 <div class="brand-logo-node"></div>
+
                 <div class="brand-title-text">AJ Tech Terminal</div>
+
             </div>
 
             <div class="hero-messaging">
+
                 <h2>Admin Sign In</h2>
+
                 <p>Enter your assigned administrative credentials to securely access your configuration terminal dashboard.</p>
+
             </div>
 
             <div class="system-status-indicator">
+
                 <div class="status-dot"></div>
+
                 <span>Secured Nodes Operational</span>
+
             </div>
+
         </section>
 
+
+
         <!-- Right Functional Context Section -->
+
         <section class="form-interactive-area">
+
             <form method="post">
+
                 {% csrf_token %}
+
                 
+
                 <!-- Floating Input Component 1 -->
+
                 <div class="input-group-container">
+
                     <div class="input-field-wrapper">
+
                         <input type="text" id="username" name="username" autocomplete="username" required placeholder=" ">
+
                         <label for="username">Username ID</label>
+
                         <div class="input-glow-track"></div>
+
                     </div>
+
                 </div>
+
                 
+
                 <!-- Floating Input Component 2 -->
+
                 <div class="input-group-container">
+
                     <div class="input-field-wrapper">
+
                         <input type="password" id="password" name="password" autocomplete="current-password" required placeholder=" ">
+
                         <label for="password">Security Cryptokey</label>
+
                         <div class="input-glow-track"></div>
+
                     </div>
+
                 </div>
 
                 <button class="submit-gateway-btn" type="submit">Initialize Verification</button>
+
             </form>
 
+
+
             <!-- Django Error Pipeline Rendering Box -->
+
             {% if error_message %}
+
                 <div class="error-box">
+
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+
                     <span>{{ error_message }}</span>
+
                 </div>
+
             {% endif %}
 
+
+
             <div class="terminal-note">
+
                 Authorized operators only. Sub-layer interaction logs are actively transmitted to security endpoints.
+
             </div>
+
         </section>
+
     </main>
 
+
+
     <!-- 3D Parallax Hover Engine Script -->
+
     <script>
+
         const card = document.getElementById('interactiveCard');
+
         
-        // Only run 3D tilting on non-mobile devices to ensure touch ergonomics
+
+        // Only run 3D tilting on desktop viewports
+
         if (window.innerWidth > 880) {
+
             document.addEventListener('mousemove', (e) => {
+
                 const xAxis = (window.innerWidth / 2 - e.pageX) / 45;
+
                 const yAxis = (window.innerHeight / 2 - e.pageY) / 45;
+
                 card.style.transform = `rotateY(${xAxis}deg) rotateX(${-yAxis}deg)`;
+
             });
+
+
 
             // Resets position smoothly when cursor exits screen window
+
             document.addEventListener('mouseleave', () => {
+
                 card.style.transition = 'transform 0.5s ease';
+
                 card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+
             });
 
+
+
             document.addEventListener('mouseenter', () => {
+
                 card.style.transition = 'none';
+
             });
+
         }
+
     </script>
+
 </body>
+
 </html>

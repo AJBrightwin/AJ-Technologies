@@ -2,48 +2,30 @@
 <html lang="en">
 <head>
     <title>Our Services | AJ Technologies - Simple & Premium Web Solutions</title>
-
 <link rel="icon" type="image/png" href="images/favicon.png">
-
 <meta charset="UTF-8" />
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
 <meta name="description" content="AJ Technologies is a leading website development company in Tamil Nadu offering business websites, eCommerce stores, SEO, and custom web solutions.">
-
 <meta name="keywords"
 content="website development company, web design company Tamil Nadu, website developer Tuticorin, ecommerce website development, landing page design, custom website development, AJ Technologies">
-
 <meta name="author" content="AJ Technologies">
-
 <meta name="robots" content="index, follow">
-
 <meta property="og:title"
 content="AJ Technologies | Professional Website Development">
-
 <meta property="og:description"
 content="We build professional websites, e-commerce stores, landing pages and custom web solutions.">
-
 <meta property="og:image"
 content="https://ajtechnologiesltd.com/images/og-image.jpg">
-
 <meta property="og:url"
 content="https://ajtechnologiesltd.com">
-
 <meta property="og:type"
 content="website">
-
 <meta name="twitter:card" content="summary_large_image">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
 <link rel="canonical" href="https://ajtechnologiesltd.com">
-
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
@@ -83,12 +65,14 @@ content="website">
             padding: 0;
             box-sizing: border-box;
             outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
             overflow-x: hidden;
+            width: 100%;
             font-size: 16px;
         }
 
@@ -97,21 +81,26 @@ content="website">
             background-color: var(--bg-main); 
             color: var(--text-main); 
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
             line-height: 1.6;
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-main);
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
             border-radius: 5px;
             border: 2px solid var(--bg-main);
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent);
         }
@@ -120,6 +109,7 @@ content="website">
             color: var(--primary);
             font-weight: 700;
             line-height: 1.2;
+            word-wrap: break-word;
         }
 
         a {
@@ -182,6 +172,8 @@ content="website">
             transform: scale(0.9);
             opacity: 0;
             animation: loaderReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+            max-width: 90%;
+            text-align: center;
         }
 
         .morf-logo-sphere {
@@ -232,6 +224,7 @@ content="website">
 
         .loader-progress-bar {
             width: 200px;
+            max-width: 100%;
             height: 6px;
             background: var(--bg-main);
             border-radius: 10px;
@@ -255,16 +248,20 @@ content="website">
         @keyframes loaderReveal {
             to { opacity: 1; transform: scale(1); }
         }
+
         @keyframes spherePulse {
             0%, 100% { transform: scale(0.85); opacity: 0.7; box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
             50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
         }
+
         @keyframes textRiseUp {
             to { opacity: 1; transform: translateY(0); }
         }
+
         @keyframes fillProgress {
             to { width: 100%; }
         }
+
         @keyframes exitSlideUp {
             to { transform: translateY(-100%); opacity: 0; visibility: hidden; }
         }
@@ -364,6 +361,7 @@ content="website">
             display: flex;
             align-items: center;
             gap: 10px;
+            z-index: 1002;
         }
 
         header.scrolled .logo {
@@ -437,13 +435,42 @@ content="website">
 
         .menu-toggle {
             display: none;
-            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--morf-shadow);
             cursor: pointer;
             color: var(--primary);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: var(--transition-fast);
         }
 
         header.scrolled .menu-toggle {
+            background: rgba(255, 255, 255, 0.1);
             color: var(--white);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 14, 32, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .nav-backdrop.active {
+            display: block;
+            opacity: 1;
         }
 
         /* ==========================================================================
@@ -496,6 +523,7 @@ content="website">
             gap: 25px;
             transform-style: preserve-3d;
             perspective: 1000px;
+            min-width: 0;
         }
 
         .service-card-premium-detailed:hover {
@@ -516,6 +544,7 @@ content="website">
             font-size: 2rem;
             color: var(--accent);
             transition: var(--transition-smooth);
+            flex-shrink: 0;
         }
 
         .service-card-premium-detailed:hover .card-icon-frame {
@@ -543,6 +572,7 @@ content="website">
         .feature-check-list li i {
             color: #22C55E;
             font-size: 1.1rem;
+            flex-shrink: 0;
         }
 
         .service-metric-badge-grid {
@@ -693,6 +723,7 @@ content="website">
             align-items: center;
             color: var(--accent);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease, color 0.3s ease;
+            flex-shrink: 0;
         }
 
         /* Active CSS State for FAQ Panels */
@@ -948,330 +979,241 @@ content="website">
            14. RESPONSIVE MATRIX LAYER BREAKPOINTS
            ========================================================================== */
         @media (max-width: 1024px) {
-            .services-hero-title { font-size: 3rem; }
-            .services-grid-extended { grid-template-columns: 1fr; gap: 35px; }
-            .advantages-cards-matrix { grid-template-columns: 1fr; gap: 25px; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .container {
+                padding: 0 25px;
+            }
+            .services-hero-title {
+                font-size: 3rem;
+            }
+            .services-grid-extended {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .advantages-cards-matrix {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .section-padding { padding: 90px 0; }
-            .cta-premium-banner-box { padding: 50px 30px; border-radius: 30px; }
-            .cta-premium-banner-box h2 { font-size: 2.2rem; }
-            .service-card-premium-detailed { padding: 35px 25px; border-radius: 25px; }
-            .btn-premium-glow-hub { font-size: 1rem; padding: 18px 36px; width: 100%; }
+            .section-padding {
+                padding: 75px 0;
+            }
+            .container {
+                padding: 0 20px;
+            }
+
+            /* Header & Mobile Drawer */
+            header {
+                padding: 15px 0;
+            }
+            .logo {
+                font-size: 1.35rem;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+
             nav {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 80%;
-                max-width: 400px;
+                width: 82%;
+                max-width: 320px;
                 height: 100vh;
-                background: var(--primary);
-                padding: 100px 40px;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-                transition: var(--transition-smooth);
+                background: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 100px 30px 40px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.4);
+                transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 1001;
+                display: flex;
+                flex-direction: column;
             }
-            nav.open { right: 0; }
-            nav ul { flex-direction: column; align-items: flex-start; gap: 30px; }
-            header.scrolled nav ul a { color: rgba(255,255,255,0.8); }
-            nav ul a { color: var(--white); font-size: 1.2rem; }
-            .menu-toggle { display: block; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .footer-bottom-bar { flex-direction: column; gap: 20px; text-align: center; }
+
+            nav.open {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+                width: 100%;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul a {
+                color: var(--white);
+                font-size: 1.15rem;
+                display: block;
+                width: 100%;
+            }
+
+            .nav-btn {
+                width: 100% !important;
+                display: block !important;
+                text-align: center !important;
+                margin-top: 15px !important;
+                padding: 14px 20px !important;
+                box-sizing: border-box;
+            }
+
+            /* Services Hero */
+            #services-hero {
+                min-height: auto;
+                padding-top: 120px;
+                padding-bottom: 40px;
+                text-align: center;
+            }
+            .services-hero-title {
+                font-size: 2.3rem;
+                line-height: 1.2;
+                letter-spacing: -1px;
+                margin-bottom: 15px;
+            }
+            #services-hero p {
+                font-size: 1.05rem !important;
+                line-height: 1.7;
+            }
+
+            /* Detailed Capabilities Grid */
+            .services-grid-extended {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .service-card-premium-detailed {
+                padding: 30px 22px;
+                border-radius: 28px;
+            }
+            .service-card-premium-detailed .card-icon-frame {
+                width: 60px;
+                height: 60px;
+                font-size: 1.6rem;
+            }
+            .service-card-premium-detailed h3 {
+                font-size: 1.45rem !important;
+            }
+            .service-metric-badge-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .metric-badge-item {
+                text-align: left;
+                padding: 12px 16px;
+                background: var(--bg-main);
+                border-radius: 14px;
+                box-shadow: var(--morf-inset);
+            }
+
+            /* Advantages Showcase Matrix */
+            .advantages-cards-matrix {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .advantage-premium-box {
+                padding: 30px 22px;
+                border-radius: 28px;
+            }
+
+            /* FAQ Accordion */
+            .faq-accordion-container {
+                margin-top: 40px;
+                gap: 15px;
+            }
+            .faq-trigger-button {
+                padding: 20px 22px;
+            }
+            .faq-trigger-button h4 {
+                font-size: 1.05rem;
+            }
+            .faq-content-inner-box {
+                padding: 0 22px 22px;
+                font-size: 0.95rem;
+            }
+
+            /* CTA Conversion Hub */
+            .cta-premium-banner-box {
+                padding: 45px 20px;
+                border-radius: 30px;
+            }
+            .cta-premium-banner-box h2 {
+                font-size: 1.9rem;
+                line-height: 1.25;
+            }
+            .cta-premium-banner-box p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            .btn-premium-glow-hub {
+                width: 100%;
+                padding: 18px 24px;
+                font-size: 1rem;
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .footer-bottom-bar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
         }
 
-        #mobileMenuBtn{
-    display:none;
-}
-
-@media(max-width:768px){
-
-    #mobileMenuBtn{
-        display:flex;
-        position:fixed;
-        top:15px;
-        left:15px;
-        width:50px;
-        height:50px;
-        z-index:10000;
-
-        border:none;
-        border-radius:12px;
-
-        background:#0D0E22;
-        color:white;
-
-        justify-content:center;
-        align-items:center;
-
-        font-size:20px;
-
-        box-shadow:0 0 20px rgba(0,0,0,.4);
-    }
-}
-
-/* ==================================================
-   EXTRA RESPONSIVE MEDIA CSS
-   ================================================== */
-
-/* Tablets */
-@media (max-width: 992px){
-
-    .container{
-        padding:0 25px;
-    }
-
-    .services-hero-title{
-        font-size:2.8rem;
-    }
-
-    .service-card-premium-detailed{
-        padding:35px;
-    }
-
-    .cta-premium-banner-box h2{
-        font-size:2.5rem;
-    }
-
-    .service-metric-badge-grid{
-        grid-template-columns:1fr 1fr 1fr;
-    }
-
-}
-
-/* Large Mobile */
-@media (max-width:768px){
-
-    html{
-        font-size:15px;
-    }
-
-    .container{
-        padding:0 18px;
-    }
-
-    #services-hero{
-        min-height:auto;
-        padding-top:120px;
-        padding-bottom:60px;
-    }
-
-    .services-hero-title{
-        font-size:2.2rem;
-        line-height:1.2;
-        margin-bottom:15px;
-    }
-
-    .services-grid-extended{
-        grid-template-columns:1fr;
-        gap:25px;
-    }
-
-    .service-card-premium-detailed{
-        padding:25px;
-        border-radius:22px;
-    }
-
-    .card-icon-frame{
-        width:60px !important;
-        height:60px !important;
-        font-size:1.5rem !important;
-    }
-
-    .service-card-premium-detailed h3{
-        font-size:1.4rem !important;
-    }
-
-    .feature-check-list li{
-        font-size:.9rem;
-        align-items:flex-start;
-    }
-
-    .service-metric-badge-grid{
-        grid-template-columns:1fr;
-        gap:12px;
-    }
-
-    .metric-badge-item{
-        text-align:center;
-        padding:10px;
-        border:1px solid rgba(0,0,0,.05);
-        border-radius:12px;
-    }
-
-    .advantages-cards-matrix{
-        grid-template-columns:1fr;
-        gap:20px;
-    }
-
-    .advantage-premium-box{
-        padding:25px;
-    }
-
-    .faq-trigger-button{
-        padding:20px;
-    }
-
-    .faq-trigger-button h4{
-        font-size:1rem;
-    }
-
-    .faq-content-inner-box{
-        padding:0 20px 20px;
-        font-size:.95rem;
-    }
-
-    .cta-premium-banner-box{
-        padding:40px 20px;
-    }
-
-    .cta-premium-banner-box h2{
-        font-size:2rem;
-        line-height:1.2;
-    }
-
-    .cta-premium-banner-box p{
-        font-size:1rem;
-    }
-
-    .btn-premium-glow-hub{
-        width:100%;
-        padding:18px 20px;
-        font-size:.95rem;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-        gap:35px;
-    }
-
-    .footer-bottom-bar{
-        flex-direction:column;
-        text-align:center;
-    }
-
-}
-
-/* Small Mobile */
-@media (max-width:480px){
-
-    html{
-        font-size:14px;
-    }
-
-    .container{
-        padding:0 14px;
-    }
-
-    .services-hero-title{
-        font-size:1.9rem;
-        letter-spacing:-1px;
-    }
-
-    .services-hero p{
-        font-size:.95rem;
-    }
-
-    .service-card-premium-detailed{
-        padding:20px;
-    }
-
-    .service-card-premium-detailed h3{
-        font-size:1.25rem !important;
-    }
-
-    .feature-check-list li{
-        font-size:.85rem;
-    }
-
-    .advantage-premium-box{
-        padding:20px;
-    }
-
-    .advantage-premium-box h4{
-        font-size:1.1rem;
-    }
-
-    .advantage-premium-box p{
-        font-size:.9rem;
-    }
-
-    .faq-trigger-button{
-        padding:16px;
-    }
-
-    .faq-trigger-button h4{
-        font-size:.9rem;
-        line-height:1.4;
-    }
-
-    .faq-icon-indicator{
-        width:30px;
-        height:30px;
-        min-width:30px;
-    }
-
-    .cta-premium-banner-box h2{
-        font-size:1.6rem;
-    }
-
-    .cta-premium-banner-box p{
-        font-size:.9rem;
-    }
-
-    .loader-brand-title{
-        font-size:1.8rem;
-        text-align:center;
-    }
-
-    .loader-brand-tagline{
-        font-size:.8rem;
-        letter-spacing:2px;
-    }
-
-    .morf-loader-container{
-        width:90%;
-        padding:40px 20px;
-    }
-
-}
-
-/* Very Small Phones */
-@media (max-width:360px){
-
-    .services-hero-title{
-        font-size:1.6rem;
-    }
-
-    .service-card-premium-detailed{
-        padding:16px;
-    }
-
-    .feature-check-list li{
-        font-size:.8rem;
-    }
-
-    .btn-premium-glow-hub{
-        font-size:.85rem;
-        letter-spacing:1px;
-    }
-
-    .cta-premium-banner-box h2{
-        font-size:1.4rem;
-    }
-
-}
+        @media (max-width: 480px) {
+            .services-hero-title {
+                font-size: 2rem;
+            }
+            .service-card-premium-detailed h3 {
+                font-size: 1.25rem !important;
+            }
+            .feature-check-list li {
+                font-size: 0.88rem;
+            }
+            .advantage-premium-box h4 {
+                font-size: 1.15rem;
+            }
+            .cta-premium-banner-box h2 {
+                font-size: 1.65rem;
+            }
+            .btn-premium-glow-hub {
+                font-size: 0.9rem;
+                letter-spacing: 1.5px;
+            }
+            .morf-loader-container {
+                padding: 35px 20px;
+            }
+            .loader-brand-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .btn-premium-glow-hub,
+            .btn-premium-glow-hub::after,
+            .service-card-premium-detailed {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body>
 
-
-    <button id="mobileMenuBtn">
-    <i class="fa-solid fa-bars"></i>
-</button>
-
     <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Backdrop for Mobile -->
+    <div class="nav-backdrop" id="nav-backdrop-node"></div>
 
     <!-- Premium Morfism Intro Animation -->
     <div id="intro-loader">
@@ -1291,7 +1233,7 @@ content="website">
             <a href="/" class="logo">
                 AJ Technologies <span class="logo-dot"></span> 
             </a>
-            <div class="menu-toggle" id="mobile-toggle-trigger">
+            <div class="menu-toggle" id="mobile-toggle-trigger" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars"></i>
             </div>
             <nav id="main-navigation-node">
@@ -1309,7 +1251,7 @@ content="website">
     <!-- Services Hero Introduction Row -->
     <section id="services-hero">
         <div class="container">
-            <div style="max-width: 800px;" class="reveal-left">
+            <div style="max-width: 800px; margin: 0 auto;" class="reveal-left">
                 <h1 class="services-hero-title">Beautiful Websites That <br><span>Work For Your Business</span></h1>
                 <p style="font-size: 1.25rem; color: var(--text-muted); line-height: 1.8;">
                     We make modern, fast, and easy-to-use websites for shops, businesses, and entrepreneurs. Our websites look premium and help turn online visitors into lifelong clients.
@@ -1326,7 +1268,6 @@ content="website">
                 <h2 class="section-main-title">Websites Made to Help You Grow</h2>
                 <p style="color: var(--text-muted);">We handle all the design and setup details so you can focus completely on your daily operations.</p>
             </div>
-
             <div class="services-grid-extended">
                 
                 <!-- Business Websites Box -->
@@ -1473,7 +1414,6 @@ content="website">
                 <h2 class="section-main-title">Why Work With AJ Technologies?</h2>
                 <p style="color: var(--text-muted);">We combine elegant style with reliable execution to build the perfect digital presence for you.</p>
             </div>
-
             <div class="advantages-cards-matrix">
                 
                 <div class="advantage-premium-box reveal">
@@ -1504,7 +1444,56 @@ content="website">
         </div>
     </section>
 
+    <!-- FAQ Accordion Section -->
+    <section id="faq-section" class="section-padding" style="background: transparent;">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-title-tag">Common Questions</span>
+                <h2 class="section-main-title">Frequently Asked Questions</h2>
+                <p style="color: var(--text-muted);">Find immediate answers to standard questions about our development and support process.</p>
+            </div>
 
+            <div class="faq-accordion-container reveal">
+                
+                <div class="faq-node">
+                    <button class="faq-trigger-button" type="button">
+                        <h4>How long does it take to design and launch a website?</h4>
+                        <div class="faq-icon-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-content-panel">
+                        <div class="faq-content-inner-box">
+                            Standard company profiles and landing pages are typically structured and delivered in 4–7 business days. Complex custom applications or larger eCommerce setups depend on scope and are delivered according to agreed timeline milestones.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-node">
+                    <button class="faq-trigger-button" type="button">
+                        <h4>Will my website work properly on mobile phones?</h4>
+                        <div class="faq-icon-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-content-panel">
+                        <div class="faq-content-inner-box">
+                            Yes, absolutely. Every platform we construct is built with adaptive responsive styling, ensuring it loads quickly and displays smoothly across smartphones, tablets, and wide displays.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-node">
+                    <button class="faq-trigger-button" type="button">
+                        <h4>Do you provide ongoing technical support after launch?</h4>
+                        <div class="faq-icon-indicator"><i class="fa-solid fa-chevron-down"></i></div>
+                    </button>
+                    <div class="faq-content-panel">
+                        <div class="faq-content-inner-box">
+                            Yes. We provide continuous technical assistance, rolling maintenance, and security updates post-launch to keep your online operations running smoothly.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
 
     <!-- Immersive Transformation Call To Action Block -->
     <section id="services-cta" class="section-padding" style="background: transparent;">
@@ -1530,9 +1519,9 @@ content="website">
                     <h3>AJ Technologies</h3> 
                     <p>We Build, You Grow. Elite website architectures built to elevate operational scale seamlessly. </p>
                     <div class="footer-social-row">
-                        <a href=" https://www.linkedin.com/in/aj-technologies-b17173412?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link-circle"><i class="fa-brands fa-linkedin-in"></i></a> 
-                        <a href="https://www.instagram.com/aj_technologies_ltd_?igsh=Ym5hdXhlZ3V2bnlq" class="social-link-circle"><i class="fa-brands fa-instagram"></i></a> 
-                        <a href=" https://youtube.com/@aj_technologies?si=X7VMm5-qdOlXsbOC" class="social-link-circle" ><i class="fa-brands fa-youtube"></i></a> 
+                        <a href="https://www.linkedin.com/in/aj-technologies-b17173412?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link-circle" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a> 
+                        <a href="https://www.instagram.com/aj_technologies_ltd_?igsh=Ym5hdXhlZ3V2bnlq" class="social-link-circle" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a> 
+                        <a href="https://youtube.com/@aj_technologies?si=X7VMm5-qdOlXsbOC" class="social-link-circle" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a> 
                     </div>
                 </div>
                 
@@ -1546,14 +1535,13 @@ content="website">
                         <a href="/contact/">Contact Hub</a> 
                     </div>
                 </div>
-
                 <div class="footer-links-column">
                     <h4>Operations</h4>
                     <p style="font-size: 0.95rem; line-height: 1.8;">
-                        Exclusively generated for structural deployments across Tamil Nadu and global digital nodes. </p>
+                        Exclusively generated for structural deployments across Tamil Nadu and global digital nodes. 
+                    </p>
                 </div>
             </div>
-
             <div class="footer-bottom-bar">
                 <p>&copy; Copyright 2026 AJ Technologies. All rights reserved.</p>
             </div>
@@ -1566,13 +1554,14 @@ content="website">
             
             // Preloader exit animation runtime engine
             const loaderNode = document.getElementById('intro-loader');
-
             setTimeout(() => {
-                loaderNode.style.animation = "exitSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
-                setTimeout(() => {
-                    loaderNode.remove();
-                    revealOnScroll();
-                }, 1000);
+                if (loaderNode) {
+                    loaderNode.style.animation = "exitSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                    setTimeout(() => {
+                        loaderNode.remove();
+                        revealOnScroll();
+                    }, 1000);
+                }
             }, 2600); 
 
             // Dynamic particle background system
@@ -1630,55 +1619,76 @@ content="website">
             }
             animateParticles();
 
-            // Interactive 3D Card mouse tracker tilt effects matrix
+            // Interactive 3D Card mouse tracker tilt effects matrix (Desktop Only)
             const tiltCards = document.querySelectorAll('.interactive-tilt-card');
-            tiltCards.forEach(card => {
-                window.addEventListener('mousemove', function(e) {
-                    const box = card.getBoundingClientRect();
-                    const centerX = box.left + box.width / 2;
-                    const centerY = box.top + box.height / 2;
-                    const rotateX = (centerY - e.clientY) / 25;
-                    const rotateY = (e.clientX - centerX) / 25;
+            if (window.innerWidth > 992) {
+                tiltCards.forEach(card => {
+                    window.addEventListener('mousemove', function(e) {
+                        const box = card.getBoundingClientRect();
+                        const centerX = box.left + box.width / 2;
+                        const centerY = box.top + box.height / 2;
+                        const rotateX = (centerY - e.clientY) / 25;
+                        const rotateY = (e.clientX - centerX) / 25;
+                        
+                        const limitX = Math.max(-10, Math.min(10, rotateX));
+                        const limitY = Math.max(-10, Math.min(10, rotateY));
+                        
+                        if (e.clientX > box.left - 100 && e.clientX < box.right + 100 &&
+                            e.clientY > box.top - 100 && e.clientY < box.bottom + 100) {
+                            card.style.transform = `rotateX(${limitX}deg) rotateY(${limitY}deg) translateY(-5px)`;
+                        }
+                    });
                     
-                    const limitX = Math.max(-10, Math.min(10, rotateX));
-                    const limitY = Math.max(-10, Math.min(10, rotateY));
-                    
-                    if (e.clientX > box.left - 100 && e.clientX < box.right + 100 &&
-                        e.clientY > box.top - 100 && e.clientY < box.bottom + 100) {
-                        card.style.transform = `rotateX(${limitX}deg) rotateY(${limitY}deg) translateY(-5px)`;
-                    }
+                    card.addEventListener('mouseleave', function() {
+                        card.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
+                    });
                 });
-                
-                card.addEventListener('mouseleave', function() {
-                    card.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
-                });
-            });
+            }
 
             // Mobile menu drawer toggle script tracking
             const mobileTrigger = document.getElementById('mobile-toggle-trigger');
             const navNode = document.getElementById('main-navigation-node');
-            
-            mobileTrigger.addEventListener('click', function() {
-                navNode.classList.toggle('open');
+            const navBackdrop = document.getElementById('nav-backdrop-node');
+
+            function toggleNav() {
+                const isOpen = navNode.classList.toggle('open');
+                navBackdrop.classList.toggle('active', isOpen);
+                
                 const barIcon = mobileTrigger.querySelector('i');
-                if(navNode.classList.contains('open')) {
+                if (isOpen) {
                     barIcon.classList.replace('fa-bars', 'fa-xmark');
+                    document.body.style.overflow = 'hidden';
                 } else {
                     barIcon.classList.replace('fa-xmark', 'fa-bars');
+                    document.body.style.overflow = '';
                 }
+            }
+
+            if (mobileTrigger) {
+                mobileTrigger.addEventListener('click', toggleNav);
+            }
+            if (navBackdrop) {
+                navBackdrop.addEventListener('click', toggleNav);
+            }
+
+            document.querySelectorAll('#main-navigation-node ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navNode.classList.contains('open')) {
+                        toggleNav();
+                    }
+                });
             });
 
             // Scroll position tracking animations reveal manager
             const siteHeader = document.getElementById('site-header');
             const elementsToReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .scale-up');
-
+            
             function revealOnScroll() {
                 if (window.scrollY > 50) {
                     siteHeader.classList.add('scrolled');
                 } else {
                     siteHeader.classList.remove('scrolled');
                 }
-
                 const triggerBottom = window.innerHeight * 0.88;
                 elementsToReveal.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
@@ -1687,11 +1697,10 @@ content="website">
                     }
                 });
             }
-            window.addEventListener('scroll', revealOnScroll);
+            window.addEventListener('scroll', revealOnScroll, { passive: true });
+            revealOnScroll();
 
-            /* ==========================================================================
-               FULLY WORKING ACCORDION LOGIC FIX
-               ========================================================================== */
+            // Fully Working Accordion Logic
             const faqNodes = document.querySelectorAll('.faq-node');
             faqNodes.forEach(node => {
                 const triggerButton = node.querySelector('.faq-trigger-button');
@@ -1718,30 +1727,6 @@ content="website">
                 });
             });
         });
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const sidebar = document.querySelector('.cyber-sidebar-hull');
-
-mobileMenuBtn.addEventListener('click',()=>{
-
-    sidebar.classList.toggle('active');
-
-});
-
-document.querySelectorAll('.kinetic-menu-trigger')
-.forEach(link=>{
-
-    link.addEventListener('click',()=>{
-
-        if(window.innerWidth <= 768){
-
-            sidebar.classList.remove('active');
-
-        }
-
-    });
-
-});
     </script>
 </body>
 </html>

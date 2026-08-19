@@ -2,22 +2,19 @@
 <html lang="en">
 <head>
     <title>Our Portfolio | AJ Technologies - Premium Showcase</title>
-
     <link rel="icon" type="image/png" href="images/favicon.png">
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="description" content="AJ Technologies is a leading website development company in Tamil Nadu offering business websites, eCommerce stores, SEO, and custom web solutions.">
     <meta name="keywords" content="website development company, web design company Tamil Nadu, website developer Tuticorin, ecommerce website development, landing page design, custom website development, AJ Technologies">
     <meta name="author" content="AJ Technologies">
     <meta name="robots" content="index, follow">
-
     <meta property="og:title" content="AJ Technologies | Professional Website Development">
     <meta property="og:description" content="We build professional websites, e-commerce stores, landing pages and custom web solutions.">
     <meta property="og:image" content="https://ajtechnologiesltd.com/images/og-image.jpg">
     <meta property="og:url" content="https://ajtechnologiesltd.com">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -62,12 +59,14 @@
             padding: 0;
             box-sizing: border-box;
             outline: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         html {
             scroll-behavior: smooth;
             scroll-padding-top: 80px;
             overflow-x: hidden;
+            width: 100%;
             font-size: 16px;
         }
 
@@ -76,21 +75,26 @@
             background-color: var(--bg-main); 
             color: var(--text-main); 
             overflow-x: hidden;
+            width: 100%;
+            position: relative;
             line-height: 1.6;
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: var(--bg-main);
         }
+
         ::-webkit-scrollbar-thumb {
             background: var(--primary);
             border-radius: 5px;
             border: 2px solid var(--bg-main);
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: var(--accent);
         }
@@ -99,6 +103,7 @@
             color: var(--primary);
             font-weight: 700;
             line-height: 1.2;
+            word-wrap: break-word;
         }
 
         a {
@@ -161,6 +166,8 @@
             transform: scale(0.9);
             opacity: 0;
             animation: loaderReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+            max-width: 90%;
+            text-align: center;
         }
 
         .morf-logo-sphere {
@@ -211,6 +218,7 @@
 
         .loader-progress-bar {
             width: 200px;
+            max-width: 100%;
             height: 6px;
             background: var(--bg-main);
             border-radius: 10px;
@@ -234,16 +242,20 @@
         @keyframes loaderReveal {
             to { opacity: 1; transform: scale(1); }
         }
+
         @keyframes spherePulse {
             0%, 100% { transform: scale(0.85); opacity: 0.7; box-shadow: 0 0 10px rgba(37, 99, 235, 0.3); }
             50% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 25px rgba(0, 212, 255, 0.6); }
         }
+
         @keyframes textRiseUp {
             to { opacity: 1; transform: translateY(0); }
         }
+
         @keyframes fillProgress {
             to { width: 100%; }
         }
+
         @keyframes exitSlideUp {
             to { transform: translateY(-100%); opacity: 0; visibility: hidden; }
         }
@@ -343,6 +355,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            z-index: 1002;
         }
 
         header.scrolled .logo {
@@ -416,13 +429,42 @@
 
         .menu-toggle {
             display: none;
-            font-size: 1.5rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--morf-shadow);
             cursor: pointer;
             color: var(--primary);
+            z-index: 1002;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            transition: var(--transition-fast);
         }
 
         header.scrolled .menu-toggle {
+            background: rgba(255, 255, 255, 0.1);
             color: var(--white);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .nav-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 14, 32, 0.65);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .nav-backdrop.active {
+            display: block;
+            opacity: 1;
         }
 
         /* ==========================================================================
@@ -500,6 +542,7 @@
             transition: var(--transition-smooth);
             transform-style: preserve-3d;
             perspective: 1000px;
+            min-width: 0;
         }
 
         .portfolio-premium-card:hover {
@@ -591,6 +634,8 @@
             align-items: center;
             border-top: 1px solid rgba(166, 180, 200, 0.15);
             padding-top: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
         }
 
         .tag-pill-morf {
@@ -852,13 +897,14 @@
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
+
         @keyframes buttonPulseGlow {
             0%, 100% { box-shadow: 0 10px 30px rgba(37, 99, 235, 0.2), 0 0 0 2px rgba(255, 255, 255, 0.1); }
             50% { box-shadow: 0 10px 35px rgba(37, 99, 235, 0.35), 0 0 15px rgba(0, 212, 255, 0.3); }
         }
 
         /* ==========================================================================
-           13. PREMIUM DARK FOOTER SYSTEM (UNCHANGED CORE STRUCTURE)
+           13. PREMIUM DARK FOOTER SYSTEM
            ========================================================================== */
         footer {
             background: var(--primary); 
@@ -957,320 +1003,239 @@
            14. RESPONSIVE MATRIX LAYER BREAKPOINTS
            ========================================================================== */
         @media (max-width: 1024px) {
-            .portfolio-hero-title { font-size: 3rem; }
-            .showcase-matrix-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-            .statistics-grid-hub { grid-template-columns: repeat(2, 1fr); gap: 30px; }
-            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .container {
+                padding: 0 25px;
+            }
+            .portfolio-hero-title {
+                font-size: 3rem;
+            }
+            .showcase-matrix-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .statistics-grid-hub {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            .section-padding { padding: 90px 0; }
-            .cta-premium-banner-box { padding: 50px 30px; border-radius: 30px; }
-            .cta-premium-banner-box h2 { font-size: 2.2rem; }
-            .showcase-matrix-grid { grid-template-columns: 1fr; gap: 35px; }
-            .statistics-grid-hub { grid-template-columns: 1fr; gap: 25px; }
-            .btn-premium-glow-hub { font-size: 1rem; padding: 18px 36px; width: 100%; }
+            .section-padding {
+                padding: 75px 0;
+            }
+            .container {
+                padding: 0 20px;
+            }
+
+            /* Header & Mobile Drawer */
+            header {
+                padding: 15px 0;
+            }
+            .logo {
+                font-size: 1.35rem;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+
             nav {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 80%;
-                max-width: 400px;
+                width: 82%;
+                max-width: 320px;
                 height: 100vh;
-                background: var(--primary);
-                padding: 100px 40px;
-                box-shadow: -10px 0 30px rgba(0,0,0,0.2);
-                transition: var(--transition-smooth);
+                background: rgba(26, 26, 46, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                padding: 100px 30px 40px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.4);
+                transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 1001;
+                display: flex;
+                flex-direction: column;
             }
-            nav.open { right: 0; }
-            nav ul { flex-direction: column; align-items: flex-start; gap: 30px; }
-            header.scrolled nav ul a { color: rgba(255,255,255,0.8); }
-            nav ul a { color: var(--white); font-size: 1.2rem; }
-            .menu-toggle { display: block; }
-            .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-            .footer-bottom-bar { flex-direction: column; gap: 20px; text-align: center; }
+
+            nav.open {
+                right: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+                width: 100%;
+            }
+
+            nav ul li {
+                width: 100%;
+            }
+
+            nav ul a {
+                color: var(--white);
+                font-size: 1.15rem;
+                display: block;
+                width: 100%;
+            }
+
+            .nav-btn {
+                width: 100% !important;
+                display: block !important;
+                text-align: center !important;
+                margin-top: 15px !important;
+                padding: 14px 20px !important;
+                box-sizing: border-box;
+            }
+
+            /* Portfolio Hero */
+            #portfolio-hero {
+                min-height: auto;
+                padding-top: 120px;
+                padding-bottom: 40px;
+                text-align: center;
+            }
+            .portfolio-hero-title {
+                font-size: 2.3rem;
+                line-height: 1.2;
+                letter-spacing: -1px;
+                margin-bottom: 15px;
+            }
+            #portfolio-hero p {
+                font-size: 1.05rem !important;
+                line-height: 1.7;
+            }
+
+            /* Showcase Grid */
+            .portfolio-filters-center {
+                gap: 10px;
+                margin-bottom: 40px;
+            }
+            .filter-chip-btn {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+            .showcase-matrix-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .portfolio-premium-card {
+                border-radius: 28px;
+            }
+            .card-body-specs {
+                padding: 25px 20px;
+            }
+            .card-footer-layout {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            /* Mobile Touch Support for Hover Overlays */
+            .hover-media-overlay-portal {
+                opacity: 1;
+                background: rgba(26, 26, 46, 0.25);
+                backdrop-filter: none;
+            }
+            .overlay-zoom-circle {
+                transform: scale(1);
+            }
+
+            /* Statistics Matrix */
+            .statistics-grid-hub {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .counter-morfism-container {
+                padding: 35px 20px;
+                border-radius: 28px;
+            }
+            .counter-morfism-container h2 {
+                font-size: 2.6rem;
+            }
+            .counter-icon-hub {
+                width: 55px;
+                height: 55px;
+                font-size: 1.2rem;
+                margin-bottom: 18px;
+            }
+
+            /* CTA Conversion Hub */
+            .cta-premium-banner-box {
+                padding: 45px 20px;
+                border-radius: 30px;
+            }
+            .cta-premium-banner-box h2 {
+                font-size: 1.9rem;
+                line-height: 1.25;
+            }
+            .cta-premium-banner-box p {
+                font-size: 1rem;
+                margin-bottom: 30px;
+            }
+            .btn-premium-glow-hub {
+                width: 100%;
+                padding: 18px 24px;
+                font-size: 1rem;
+            }
+
+            /* Footer */
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .footer-bottom-bar {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
         }
 
-        #mobileMenuBtn{
-    display:none;
-}
-
-@media(max-width:768px){
-
-    #mobileMenuBtn{
-        display:flex;
-        position:fixed;
-        top:15px;
-        left:15px;
-        width:50px;
-        height:50px;
-        z-index:10000;
-
-        border:none;
-        border-radius:12px;
-
-        background:#0D0E22;
-        color:white;
-
-        justify-content:center;
-        align-items:center;
-
-        font-size:20px;
-
-        box-shadow:0 0 20px rgba(0,0,0,.4);
-    }
-}
-
-/* =========================================================
-   FULL MOBILE RESPONSIVE OPTIMIZATION
-========================================================= */
-
-@media screen and (max-width:1024px){
-
-    .container{
-        padding:0 20px;
-    }
-
-    .portfolio-hero-title{
-        font-size:3rem;
-    }
-
-    .showcase-matrix-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:25px;
-    }
-
-    .statistics-grid-hub{
-        grid-template-columns:repeat(2,1fr);
-        gap:25px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE DEVICES
-========================================================= */
-
-@media screen and (max-width:768px){
-
-    html,
-    body{
-        overflow-x:hidden;
-    }
-
-    .container{
-        padding:0 15px;
-    }
-
-    .section-padding{
-        padding:80px 0;
-    }
-
-    /* HERO */
-
-    #portfolio-hero{
-        min-height:auto;
-        padding-top:120px;
-        text-align:center;
-    }
-
-    .portfolio-hero-title{
-        font-size:2.2rem;
-        line-height:1.2;
-        margin-bottom:15px;
-    }
-
-    #portfolio-hero p{
-        font-size:1rem !important;
-        line-height:1.7;
-    }
-
-    /* NAVIGATION */
-
-    nav{
-        position:fixed;
-        top:0;
-        right:-100%;
-        width:85%;
-        max-width:320px;
-        height:100vh;
-        background:#1A1A2E;
-        padding:100px 30px;
-        overflow-y:auto;
-    }
-
-    nav ul{
-        flex-direction:column;
-        align-items:flex-start;
-        gap:25px;
-    }
-
-    nav ul a{
-        font-size:1.1rem;
-    }
-
-    .menu-toggle{
-        display:block;
-    }
-
-    /* PORTFOLIO GRID */
-
-    .showcase-matrix-grid{
-        grid-template-columns:1fr;
-        gap:25px;
-    }
-
-    .portfolio-premium-card{
-        border-radius:25px;
-    }
-
-    .card-media-viewport{
-        aspect-ratio:16/10;
-    }
-
-    .card-body-specs{
-        padding:25px;
-    }
-
-    .card-body-specs h3{
-        font-size:1.2rem;
-        word-break:break-word;
-    }
-
-    .card-body-specs p{
-        font-size:0.95rem;
-        word-break:break-word;
-        overflow-wrap:anywhere;
-    }
-
-    .card-footer-layout{
-        flex-direction:column;
-        gap:15px;
-        align-items:flex-start;
-    }
-
-    /* STATISTICS */
-
-    .statistics-grid-hub{
-        grid-template-columns:1fr;
-        gap:20px;
-    }
-
-    .counter-morfism-container{
-        padding:35px 20px;
-    }
-
-    .counter-morfism-container h2{
-        font-size:2.3rem;
-    }
-
-    .counter-icon-hub{
-        width:55px;
-        height:55px;
-        font-size:1.2rem;
-    }
-
-    /* CTA */
-
-    .cta-premium-banner-box{
-        padding:40px 20px;
-        border-radius:25px;
-    }
-
-    .cta-premium-banner-box h2{
-        font-size:1.8rem;
-        line-height:1.3;
-    }
-
-    .cta-premium-banner-box p{
-        font-size:1rem;
-    }
-
-    .btn-premium-glow-hub{
-        width:100%;
-        padding:18px;
-        font-size:1rem;
-    }
-
-    /* FOOTER */
-
-    .footer-grid{
-        grid-template-columns:1fr;
-        gap:40px;
-        text-align:center;
-    }
-
-    .footer-social-row{
-        justify-content:center;
-    }
-
-    .footer-links-column h4::after{
-        left:50%;
-        transform:translateX(-50%);
-    }
-
-    .footer-bottom-bar{
-        flex-direction:column;
-        text-align:center;
-        gap:15px;
-    }
-
-    /* DISABLE HEAVY HOVER EFFECTS */
-
-    .portfolio-premium-card:hover{
-        transform:none;
-    }
-
-    .counter-morfism-container:hover{
-        transform:none;
-    }
-
-}
-
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media screen and (max-width:480px){
-
-    .portfolio-hero-title{
-        font-size:1.9rem;
-    }
-
-    .card-body-specs{
-        padding:20px;
-    }
-
-    .counter-morfism-container h2{
-        font-size:2rem;
-    }
-
-    .cta-premium-banner-box h2{
-        font-size:1.6rem;
-    }
-
-    .btn-premium-glow-hub{
-        font-size:0.9rem;
-        letter-spacing:1px;
-    }
-
-}
+        @media (max-width: 480px) {
+            .portfolio-hero-title {
+                font-size: 2rem;
+            }
+            .card-body-specs h3 {
+                font-size: 1.25rem;
+            }
+            .counter-morfism-container h2 {
+                font-size: 2.2rem;
+            }
+            .cta-premium-banner-box h2 {
+                font-size: 1.65rem;
+            }
+            .btn-premium-glow-hub {
+                font-size: 0.9rem;
+                letter-spacing: 1.5px;
+            }
+            .morf-loader-container {
+                padding: 35px 20px;
+            }
+            .loader-brand-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .btn-premium-glow-hub,
+            .btn-premium-glow-hub::after,
+            .counter-morfism-container {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <button id="mobileMenuBtn">
-    <i class="fa-solid fa-bars"></i>
-</button>
-
     <canvas id="particle-canvas"></canvas>
 
+    <!-- Navigation Backdrop for Mobile -->
+    <div class="nav-backdrop" id="nav-backdrop-node"></div>
+
+    <!-- Intro Loader -->
     <div id="intro-loader">
         <div class="morf-loader-container">
             <div class="morf-logo-sphere"></div>
@@ -1282,12 +1247,13 @@
         </div>
     </div>
 
+    <!-- Header -->
     <header id="site-header">
         <div class="container">
             <a href="/" class="logo">
                 AJ Technologies <span class="logo-dot"></span> 
             </a>
-            <div class="menu-toggle" id="mobile-toggle-trigger">
+            <div class="menu-toggle" id="mobile-toggle-trigger" aria-label="Toggle navigation">
                 <i class="fa-solid fa-bars"></i>
             </div>
             <nav id="main-navigation-node">
@@ -1302,9 +1268,10 @@
         </div>
     </header>
 
+    <!-- Portfolio Hero Section -->
     <section id="portfolio-hero">
         <div class="container">
-            <div style="max-width: 800px;" class="reveal-left">
+            <div style="max-width: 800px; margin: 0 auto;" class="reveal-left">
                 <h1 class="portfolio-hero-title">Engineering Digital<br><span>Masterpieces</span></h1>
                 <p style="font-size: 1.25rem; color: var(--text-muted); line-height: 1.8;">
                     Explore our curated collection of live business interfaces, digital footprints, and full-featured ecommerce ecosystems built to drive industry authority.
@@ -1313,17 +1280,20 @@
         </div>
     </section>
 
-
+    <!-- Live Portfolio Showcase Section -->
     <section id="live-portfolio-showcase" style="background: transparent; padding: 10px 0 100px;">
         <div class="container">
-
-            <div class="showcase-matrix-grid" id="portfolio-matrix-container">{% for portfolioprojects in portfolioprojects %}
-                
+            <div class="showcase-matrix-grid" id="portfolio-matrix-container">
+                {% for portfolioprojects in portfolioprojects %}
                 <div class="portfolio-premium-card reveal boutique">
                     <div class="card-media-viewport">
-                        {% if portfolioprojects.portfolio_image %}<img src="{{ portfolioprojects.portfolio_image.url }}" alt="{{ portfolioprojects.portfolio_Title }}" style="object-fit: cover;">{% else %}<span style="color:#aaa;">No image</span>{% endif %}
+                        {% if portfolioprojects.portfolio_image %}
+                            <img src="{{ portfolioprojects.portfolio_image.url }}" alt="{{ portfolioprojects.portfolio_Title }}" style="object-fit: cover;">
+                        {% else %}
+                            <div style="display: flex; justify-content: center; align-items: center; height: 100%; color:#aaa; background: #e2e8f0;">No image</div>
+                        {% endif %}
                         <div class="hover-media-overlay-portal">
-                           <a href="{{ portfolioprojects.portfolio_link }}" target="_blank">
+                            <a href="{{ portfolioprojects.portfolio_link }}" target="_blank" rel="noopener">
                                 <div class="overlay-zoom-circle"><i class="fa-solid fa-expand"></i></div>
                             </a>
                         </div>
@@ -1333,22 +1303,21 @@
                         <p>{{ portfolioprojects.portfolio_description }}</p>
                         <div class="card-footer-layout">
                             <span class="tag-pill-morf">{{ portfolioprojects.portfolio_tag }}</span>
-                            <a href="{{ portfolioprojects.portfolio_link }}" target="_blank" class="view-live-anchor">
+                            <a href="{{ portfolioprojects.portfolio_link }}" target="_blank" rel="noopener" class="view-live-anchor">
                                 View Live <i class="fa-solid fa-arrow-up-right-from-square"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-
                 {% endfor %}
             </div>
         </div>
     </section>
 
+    <!-- Statistics Counter Row Section -->
     <section id="statistics-counter-row" class="section-padding">
         <div class="container">
             <div class="statistics-grid-hub">
-                
                 <div class="counter-morfism-container reveal">
                     <div class="counter-icon-hub">
                         <i class="fa-solid fa-laptop-code"></i>
@@ -1357,7 +1326,6 @@
                     <p>Platforms Launched</p>
                     <div class="card-aura-pulse-glow"></div>
                 </div>
-
                 <div class="counter-morfism-container reveal">
                     <div class="counter-icon-hub">
                         <i class="fa-solid fa-gauge-high"></i>
@@ -1366,7 +1334,6 @@
                     <p>% Speed Rating</p>
                     <div class="card-aura-pulse-glow"></div>
                 </div>
-
                 <div class="counter-morfism-container reveal">
                     <div class="counter-icon-hub">
                         <i class="fa-solid fa-shield-heart"></i>
@@ -1375,7 +1342,6 @@
                     <p>% Client Trust</p>
                     <div class="card-aura-pulse-glow"></div>
                 </div>
-
                 <div class="counter-morfism-container reveal">
                     <div class="counter-icon-hub">
                         <i class="fa-solid fa-headset"></i>
@@ -1384,17 +1350,16 @@
                     <p>/7 Constant Support</p>
                     <div class="card-aura-pulse-glow"></div>
                 </div>
-
             </div>
         </div>
     </section>
 
+    <!-- CTA Section -->
     <section id="services-cta" class="section-padding" style="background: transparent;">
         <div class="container">
             <div class="cta-premium-banner-box reveal">
                 <h2>Ready to Feature Your Brand Next?</h2>
                 <p>Contact our design hub today to discuss your website requirements and explore tailored options for your business scale.</p>
-                
                 <a href="/contact/" class="btn-premium-glow-hub">
                     Get In Touch Now <i class="fa-solid fa-paper-plane"></i>
                 </a>
@@ -1402,16 +1367,17 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-brand-column">
                     <h3>AJ Technologies</h3> 
-                    <p>We Build, You Grow. Elite website architectures built to elevate operational scale seamlessly. </p>
+                    <p>We Build, You Grow. Elite website architectures built to elevate operational scale seamlessly.</p>
                     <div class="footer-social-row">
-                        <a href="https://www.linkedin.com/in/aj-technologies-b17173412?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link-circle"><i class="fa-brands fa-linkedin-in"></i></a> 
-                        <a href="https://www.instagram.com/aj_technologies_ltd_?igsh=Ym5hdXhlZ3V2bnlq" class="social-link-circle"><i class="fa-brands fa-instagram"></i></a> 
-                        <a href="https://youtube.com/@aj_technologies?si=X7VMm5-qdOlXsbOC" class="social-link-circle"><i class="fa-brands fa-youtube"></i></a> 
+                        <a href="https://www.linkedin.com/in/aj-technologies-b17173412?utm_source=share_via&utm_content=profile&utm_medium=member_android" class="social-link-circle" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a> 
+                        <a href="https://www.instagram.com/aj_technologies_ltd_?igsh=Ym5hdXhlZ3V2bnlq" class="social-link-circle" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a> 
+                        <a href="https://youtube.com/@aj_technologies?si=X7VMm5-qdOlXsbOC" class="social-link-circle" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i></a> 
                     </div>
                 </div>
                 
@@ -1425,32 +1391,33 @@
                         <a href="/contact/">Contact Hub</a> 
                     </div>
                 </div>
-
                 <div class="footer-links-column">
-                    <h4>Navigation Layers</h4>
+                    <h4>Operations</h4>
                     <p style="font-size: 0.95rem; line-height: 1.8;">
-                        Exclusively generated for structural deployments across Tamil Nadu and global digital nodes. </p>
+                        Exclusively generated for structural deployments across Tamil Nadu and global digital nodes.
+                    </p>
                 </div>
             </div>
-
             <div class="footer-bottom-bar">
                 <p>&copy; Copyright 2026 AJ Technologies. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Interactive Scripts -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             
             // Preloader exit animation runtime engine
             const loaderNode = document.getElementById('intro-loader');
-
             setTimeout(() => {
-                loaderNode.style.animation = "exitSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
-                setTimeout(() => {
-                    loaderNode.remove();
-                    revealOnScroll();
-                }, 1000);
+                if (loaderNode) {
+                    loaderNode.style.animation = "exitSlideUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards";
+                    setTimeout(() => {
+                        loaderNode.remove();
+                        revealOnScroll();
+                    }, 1000);
+                }
             }, 2600); 
 
             // Dynamic background particle engine module
@@ -1508,49 +1475,69 @@
             }
             animateParticles();
 
-            // Interactive 3D Card mouse tracker tilt effects matrix
+            // Interactive 3D Card mouse tracker tilt effects matrix (Desktop Only)
             const premiumCards = document.querySelectorAll('.portfolio-premium-card');
-            premiumCards.forEach(card => {
-                window.addEventListener('mousemove', function(e) {
-                    const box = card.getBoundingClientRect();
-                    const centerX = box.left + box.width / 2;
-                    const centerY = box.top + box.height / 2;
-                    const rotateX = (centerY - e.clientY) / 25;
-                    const rotateY = (e.clientX - centerX) / 25;
+            if (window.innerWidth > 992) {
+                premiumCards.forEach(card => {
+                    window.addEventListener('mousemove', function(e) {
+                        const box = card.getBoundingClientRect();
+                        const centerX = box.left + box.width / 2;
+                        const centerY = box.top + box.height / 2;
+                        const rotateX = (centerY - e.clientY) / 25;
+                        const rotateY = (e.clientX - centerX) / 25;
+                        
+                        const limitX = Math.max(-10, Math.min(10, rotateX));
+                        const limitY = Math.max(-10, Math.min(10, rotateY));
+                        
+                        if (e.clientX > box.left - 50 && e.clientX < box.right + 50 &&
+                            e.clientY > box.top - 50 && e.clientY < box.bottom + 50) {
+                            card.style.transform = `rotateX(${limitX}deg) rotateY(${limitY}deg) translateY(-5px)`;
+                        }
+                    });
                     
-                    const limitX = Math.max(-10, Math.min(10, rotateX));
-                    const limitY = Math.max(-10, Math.min(10, rotateY));
-                    
-                    if (e.clientX > box.left - 50 && e.clientX < box.right + 50 &&
-                        e.clientY > box.top - 50 && e.clientY < box.bottom + 50) {
-                        card.style.transform = `rotateX(${limitX}deg) rotateY(${limitY}deg) translateY(-5px)`;
-                    }
+                    card.addEventListener('mouseleave', function() {
+                        card.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
+                    });
                 });
-                
-                card.addEventListener('mouseleave', function() {
-                    card.style.transform = `rotateX(0deg) rotateY(0deg) translateY(0px)`;
-                });
-            });
+            }
 
-            // Mobile menu drawer toggle script tracking
+            // Mobile Navigation Toggle & Backdrop
             const mobileTrigger = document.getElementById('mobile-toggle-trigger');
             const navNode = document.getElementById('main-navigation-node');
-            
-            mobileTrigger.addEventListener('click', function() {
-                navNode.classList.toggle('open');
+            const navBackdrop = document.getElementById('nav-backdrop-node');
+
+            function toggleNav() {
+                const isOpen = navNode.classList.toggle('open');
+                navBackdrop.classList.toggle('active', isOpen);
+                
                 const barIcon = mobileTrigger.querySelector('i');
-                if(navNode.classList.contains('open')) {
+                if (isOpen) {
                     barIcon.classList.replace('fa-bars', 'fa-xmark');
+                    document.body.style.overflow = 'hidden';
                 } else {
                     barIcon.classList.replace('fa-xmark', 'fa-bars');
+                    document.body.style.overflow = '';
                 }
+            }
+
+            if (mobileTrigger) {
+                mobileTrigger.addEventListener('click', toggleNav);
+            }
+            if (navBackdrop) {
+                navBackdrop.addEventListener('click', toggleNav);
+            }
+
+            document.querySelectorAll('#main-navigation-node ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navNode.classList.contains('open')) {
+                        toggleNav();
+                    }
+                });
             });
 
-            // Scroll position tracking animations reveal manager
+            // Scroll reveals and header tracking
             const siteHeader = document.getElementById('site-header');
             const elementsToReveal = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .scale-up');
-
-            // Global control flag preventing double triggers on count module
             let countersInitialized = false;
 
             function revealOnScroll() {
@@ -1566,7 +1553,6 @@
                     if (elementTop < triggerBottom) {
                         element.classList.add('active');
                         
-                        // Fire counters immediately if the stats grid comes into frame
                         if (element.classList.contains('counter-morfism-container') && !countersInitialized) {
                             countersInitialized = true;
                             initCounters();
@@ -1574,16 +1560,13 @@
                     }
                 });
             }
-            window.addEventListener('scroll', revealOnScroll);
+            window.addEventListener('scroll', revealOnScroll, { passive: true });
+            revealOnScroll();
 
-            /* ==========================================================================
-               DYNAMIC CATEGORY SORTING FILTER SYSTEM SCRIPT (FIXED)
-               ========================================================================= */
+            // Dynamic Category Sorting Filter System
             const filterChips = document.querySelectorAll('.filter-chip-btn');
-            
             filterChips.forEach(chip => {
                 chip.addEventListener('click', () => {
-                    // FIXED: Replaced standard broken arrow syntax layout loops
                     filterChips.forEach(c => c.classList.remove('active'));
                     chip.classList.add('active');
                     
@@ -1601,22 +1584,16 @@
                 });
             });
 
-            /* ==========================================================================
-               UPGRADED HIGH-FREQUENCY INCREMENTAL METRICS COUNTER ENGINE
-               ========================================================================= */
+            // Statistics Metrics Counter Engine
             function initCounters() {
                 const countElements = document.querySelectorAll('.stat-count-node');
-                
                 countElements.forEach(element => {
                     const finalLimitValue = parseInt(element.getAttribute('data-target-value'), 10);
                     let startingBaseValue = 0;
-                    
-                    // Fixed duration pool ensuring all items finish rolling over 2 seconds seamlessly
                     const rollingDuration = 2000; 
                     const timingStep = Math.max(Math.floor(rollingDuration / finalLimitValue), 15);
                     
                     const processIntervalCounter = setInterval(() => {
-                        // Dynamically adjust increment amount for larger values to maintain perfect timing sync
                         if (finalLimitValue > 80 && startingBaseValue < finalLimitValue - 5) {
                             startingBaseValue += 2;
                         } else {
@@ -1634,63 +1611,35 @@
                 });
             }
 
-            /* ==========================================================================
-               INTERACTIVE 3D CARD TILT & MOUSE LIGHTING TRACKER FOR STATS CONTAINERS
-               ========================================================================= */
+            // Interactive 3D Card Tilt & Mouse Lighting Tracker (Desktop Only)
             const statsCards = document.querySelectorAll('.counter-morfism-container');
-            statsCards.forEach(card => {
-                card.addEventListener('mousemove', function(e) {
-                    const rect = card.getBoundingClientRect();
-                    // Track relative mouse locations for light matrix reflections
-                    const x = e.clientX - rect.left;
-                    const y = e.clientY - rect.top;
-                    card.style.setProperty('--mouse-x', `${x}px`);
-                    card.style.setProperty('--mouse-y', `${y}px`);
-
-                    // Advanced 3D calculations
-                    const width = rect.width;
-                    const height = rect.height;
-                    const mouseX = x - width / 2;
-                    const mouseY = y - height / 2;
-                    
-                    // Constrain maximum tilt angle matrices to 8 degrees
-                    const rX = -(mouseY / height) * 12;
-                    const rY = (mouseX / width) * 12;
-                    
-                    card.style.setProperty('--rot-x', `${rX}deg`);
-                    card.style.setProperty('--rot-y', `${rY}deg`);
+            if (window.innerWidth > 992) {
+                statsCards.forEach(card => {
+                    card.addEventListener('mousemove', function(e) {
+                        const rect = card.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        card.style.setProperty('--mouse-x', `${x}px`);
+                        card.style.setProperty('--mouse-y', `${y}px`);
+                        
+                        const width = rect.width;
+                        const height = rect.height;
+                        const mouseX = x - width / 2;
+                        const mouseY = y - height / 2;
+                        
+                        const rX = -(mouseY / height) * 12;
+                        const rY = (mouseX / width) * 12;
+                        
+                        card.style.setProperty('--rot-x', `${rX}deg`);
+                        card.style.setProperty('--rot-y', `${rY}deg`);
+                    });
+                    card.addEventListener('mouseleave', function() {
+                        card.style.setProperty('--rot-x', `0deg`);
+                        card.style.setProperty('--rot-y', `0deg`);
+                    });
                 });
-
-                card.addEventListener('mouseleave', function() {
-                    card.style.setProperty('--rot-x', `0deg`);
-                    card.style.setProperty('--rot-y', `0deg`);
-                });
-            });
+            }
         });
-
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-const sidebar = document.querySelector('.cyber-sidebar-hull');
-
-mobileMenuBtn.addEventListener('click',()=>{
-
-    sidebar.classList.toggle('active');
-
-});
-
-document.querySelectorAll('.kinetic-menu-trigger')
-.forEach(link=>{
-
-    link.addEventListener('click',()=>{
-
-        if(window.innerWidth <= 768){
-
-            sidebar.classList.remove('active');
-
-        }
-
-    });
-
-});
     </script>
 </body>
 </html>
