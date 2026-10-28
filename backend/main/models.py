@@ -113,3 +113,40 @@ class ShowcaseProject(models.Model):
             'built': {'en': self.built_en, 'ta': self.built_ta or self.built_en},
             'tags': {'en': list(self.tags_en or []), 'ta': list(self.tags_ta or self.tags_en or [])},
         }
+
+
+class ClientReview(models.Model):
+    """A genuine client review shown in "What our clients say" on the home page. Read-only for the website."""
+
+    id = models.BigAutoField(primary_key=True)
+    client_name = models.CharField(max_length=120)
+    business_name = models.CharField(max_length=160, blank=True)
+    location = models.CharField(max_length=120, blank=True)
+    rating = models.SmallIntegerField(default=5)
+    review_en = models.TextField()
+    review_ta = models.TextField(blank=True)
+    project_id = models.BigIntegerField(null=True, blank=True)
+    source = models.CharField(max_length=10, default='direct')
+    review_date = models.DateField()
+    is_published = models.BooleanField(default=True)
+    sort_order = models.IntegerField(default=0)
+    created_at = models.DateTimeField()
+    updated_at = models.DateTimeField()
+
+    class Meta:
+        managed = False
+        db_table = 'client_reviews'
+        ordering = ['sort_order', '-review_date', '-created_at']
+
+    def __str__(self):
+        return f'{self.client_name} ({self.rating}★)'
+
+    def to_public_dict(self):
+        """Shape used by the home page JavaScript."""
+        place = ', '.join(x for x in [self.business_name, self.location] if x)
+        return {
+            'name': self.client_name,
+            'business': place,
+            'rating': max(1, min(5, self.rating or 5)),
+            'text': {'en': self.review_en, 'ta': self.review_ta or self.review_en},
+        }

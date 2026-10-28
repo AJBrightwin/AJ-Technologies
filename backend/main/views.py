@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
-from .models import ContactEnquiry, ShowcaseProject
+from .models import ClientReview, ContactEnquiry, ShowcaseProject
 
 log = logging.getLogger(__name__)
 
@@ -25,9 +25,18 @@ def _projects(home_only=False):
         return []
 
 
+def _reviews():
+    """Published client reviews for the home page (max 20)."""
+    try:
+        return [r.to_public_dict() for r in ClientReview.objects.filter(is_published=True)[:20]]
+    except Exception:  # never break the page if the database is briefly unreachable (or the table is not created yet)
+        log.exception('Could not load client reviews')
+        return []
+
+
 def index(request):
     """AJ Technologies home page."""
-    return render(request, 'index.html', {'projects': _projects(home_only=True)})
+    return render(request, 'index.html', {'projects': _projects(home_only=True), 'reviews': _reviews()})
 
 
 def about(request):

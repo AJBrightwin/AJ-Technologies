@@ -557,6 +557,7 @@ html[lang="ta"] .hero h1{font-style:normal;overflow-wrap:anywhere}
    TESTIMONIALS
    ========================================================= */
 .testi{background:#070b22;color:#fff;overflow:hidden;isolation:isolate}
+.testi[hidden]{display:none!important}
 .testi .aurora{position:absolute;border-radius:50%;filter:blur(70px);z-index:-1;opacity:.55;pointer-events:none}
 .testi .a1{width:520px;height:520px;background:#2563eb;left:-160px;top:-120px;animation:drift1 16s ease-in-out infinite alternate}
 .testi .a2{width:480px;height:480px;background:#7c3aed;right:-140px;bottom:-160px;animation:drift2 18s ease-in-out infinite alternate}
@@ -1434,9 +1435,9 @@ html[lang="ta"] .ft-bottom{font-size:13px}
 </section>
 
 <!-- =========================================================
-     TESTIMONIALS  (rendered from the TESTIMONIALS list in the script below)
+     TESTIMONIALS  (client reviews from the Supabase "client_reviews" table)
      ========================================================= -->
-<section class="sec testi" id="testimonials">
+<section class="sec testi" id="testimonials" hidden>
   <span class="aurora a1"></span><span class="aurora a2"></span><span class="aurora a3"></span><span class="dots"></span>
   <div class="container">
     <div class="sec-head reveal">
@@ -1446,10 +1447,6 @@ html[lang="ta"] .ft-bottom{font-size:13px}
     </div>
   </div>
   <div id="tsWrap" class="reveal"></div>
-  <!-- hidden strings for the sample cards -->
-  <span hidden data-i18n="ts_ph_name">Client Name</span>
-  <span hidden data-i18n="ts_ph_text">Your client's review will appear here. Add real reviews to the TESTIMONIALS list in the script.</span>
-  <span hidden data-i18n="ts_sample">SAMPLE</span>
 </section>
 
 <!-- =========================================================
@@ -1692,6 +1689,7 @@ html[lang="ta"] .ft-bottom{font-size:13px}
 <button class="to-top" id="toTop" aria-label="Back to top"><svg class="icon"><use href="#i-arrow"/></svg></button>
 
 {{ projects|json_script:"projects-data" }}
+{{ reviews|json_script:"reviews-data" }}
 <script>
 /* =========================================================
    1) EDIT THESE LATER — PROJECTS & TESTIMONIALS
@@ -1702,10 +1700,8 @@ const PORTFOLIO_URL = "{% url 'portfolio' %}";
 const PROJECTS = JSON.parse(document.getElementById('projects-data').textContent || '[]');
 const pick = o => (o && typeof o === 'object') ? (o[LANG] || o.en || '') : (o || '');
 
-const TESTIMONIALS = [
-  // { name: "Client Name", business: "Business Name, City", rating: 5, text: "What the client said about working with AJ Technologies." },
-  // Add at least 4 real reviews. Until then, SAMPLE cards are shown.
-];
+// Client reviews come from the database (Supabase "client_reviews" table, published ones only)
+const TESTIMONIALS = JSON.parse(document.getElementById('reviews-data').textContent || '[]');
 
 /* Contact details used by WhatsApp buttons */
 const WHATSAPP_NUMBER = "919952431501";
@@ -1892,16 +1888,20 @@ function buildPfDots(){
 })();
 
 /* Testimonials: two rows flowing in opposite directions. Hover pauses the row and highlights the card.
-   Until real reviews are added, clearly-marked SAMPLE cards are shown so you can see the layout. */
+   Reviews come from the database. The whole section stays hidden until at least one review is published. */
 function renderTestimonials(){
   const wrap = document.getElementById('tsWrap');
+  const section = document.getElementById('testimonials');
+  if (!TESTIMONIALS.length){ section.hidden = true; wrap.innerHTML = ''; return; }
+  section.hidden = false;
   const star = '<svg class="icon"><use href="#i-star"/></svg>';
-  let items = TESTIMONIALS.length
-    ? TESTIMONIALS.map(x => ({ ...x }))
-    : ['s1','s2','s3','s7','s4','s6','s8','s11'].map(k => ({ name: t('ts_ph_name'), business: t(k), text: t('ts_ph_text'), sample: true }));
-  while (items.length < 8) items = items.concat(items);
+  let items = TESTIMONIALS.map(x => ({ ...x, text: pick(x.text) }));
+  // one review: a single row; 2+ reviews: two rows moving in opposite directions
+  const twoRows = items.length > 1;
+  const minPerRow = 4;
+  const fill = arr => { let out = arr.slice(); while (out.length < minPerRow) out = out.concat(arr); return out; };
   const half = Math.ceil(items.length / 2);
-  const rows = [items.slice(0, half), items.slice(half)];
+  const rows = twoRows ? [fill(items.slice(0, half)), fill(items.slice(half))] : [fill(items)];
   const card = (x, dup) => `
     <article class="tcard"${dup ? ' aria-hidden="true"' : ''}>
       <div class="t-head">
