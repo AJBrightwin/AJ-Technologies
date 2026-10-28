@@ -1,0 +1,6 @@
+# AJ Technologies website
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://ajtechnologiesltd.com/sitemap.xml
